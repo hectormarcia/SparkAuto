@@ -1,20 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\SparkAuto.csproj": {}
+    "C:\\Users\\hmarcia\\source\\repos\\DEV\\2021\\Hema\\20201-02-08\\SparkAuto.csproj": {}
   },
   "projects": {
-    "C:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\SparkAuto.csproj": {
+    "C:\\Users\\hmarcia\\source\\repos\\DEV\\2021\\Hema\\20201-02-08\\SparkAuto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\SparkAuto.csproj",
+        "projectUniqueName": "C:\\Users\\hmarcia\\source\\repos\\DEV\\2021\\Hema\\20201-02-08\\SparkAuto.csproj",
         "projectName": "SparkAuto",
-        "projectPath": "C:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\SparkAuto.csproj",
-        "packagesPath": "C:\\Users\\edgar\\.nuget\\packages\\",
-        "outputPath": "C:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\obj\\",
+        "projectPath": "C:\\Users\\hmarcia\\source\\repos\\DEV\\2021\\Hema\\20201-02-08\\SparkAuto.csproj",
+        "packagesPath": "C:\\Users\\hmarcia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hmarcia\\source\\repos\\DEV\\2021\\Hema\\20201-02-08\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\edgar\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hmarcia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -103,7 +109,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

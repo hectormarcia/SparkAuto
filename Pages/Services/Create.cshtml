@@ -1,6 +1,6 @@
 ﻿@page
 @model SparkAuto.Pages.Services.CreateModel
-@{ ViewData["Title"] = "Create";
+@{ ViewData["Title"] = "Create Service";
     Layout = "~/Pages/Shared/_Layout.cshtml"; 
 }
 
@@ -79,16 +79,23 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-10 col-md-7">
-                                <select asp-for="CarServiceVM.ServiceDetails.ServiceTypeId"
-                                        asp-items="@(new SelectList(Model.CarServiceVM.ServiceTypesList,"Id","Name"))"
-                                        class="form-control"></select>
-                            </div>
-                            <div class="col-2 col-md-1">
-                                <button type="submit" asp-page-handler="AddToCart" class="btn btn-primary btn-icon">
-                                    <i class="fal fa-plus"></i>
-                                </button>
-                            </div>
+                            @if (Model.CarServiceVM.ServiceTypesList.Count == 0)
+                            {
+                        <p>
+                            All services have been added.
+                        </p> }
+                            else
+                            {
+                        <div class="col-10 col-md-7">
+                            <select asp-for="CarServiceVM.ServiceDetails.ServiceTypeId"
+                                    asp-items="@(new SelectList(Model.CarServiceVM.ServiceTypesList, "Id", "Name"))"
+                                    class="form-control"></select>
+                        </div>
+                        <div class="col-2 col-md-1">
+                            <button type="submit" asp-page-handler="AddToCart" class="btn btn-primary btn-icon">
+                                <i class="fal fa-plus"></i>
+                            </button>
+                        </div>}
                         </div>
                     </div>
 
