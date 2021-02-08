@@ -58,10 +58,13 @@ namespace SparkAuto.Pages.Services
 
             foreach (var item in CarServiceVM.ServiceShoppingCart)
             {
-                
+
                 CarServiceVM.ServiceHeader.TotalPrice += item.ServiceType.Price;
-                CarServiceVM.ServiceHeader.Tax = CarServiceVM.ServiceHeader.TotalPrice * 13 / 100;
+                CarServiceVM.ServiceHeader.TotalPrice = Math.Round(CarServiceVM.ServiceHeader.TotalPrice, 2);
+                CarServiceVM.ServiceHeader.Tax = CarServiceVM.ServiceHeader.TotalPrice * .13;
+                CarServiceVM.ServiceHeader.Tax = Math.Round(CarServiceVM.ServiceHeader.Tax, 2);
                 CarServiceVM.ServiceHeader.FullPrice = CarServiceVM.ServiceHeader.Tax + CarServiceVM.ServiceHeader.TotalPrice;
+                CarServiceVM.ServiceHeader.FullPrice = Math.Round(CarServiceVM.ServiceHeader.FullPrice, 2);
             }
 
             return Page();
@@ -77,8 +80,11 @@ namespace SparkAuto.Pages.Services
                 foreach (var item in CarServiceVM.ServiceShoppingCart)
                 {
                     CarServiceVM.ServiceHeader.TotalPrice += item.ServiceType.Price;
-                    CarServiceVM.ServiceHeader.Tax = CarServiceVM.ServiceHeader.TotalPrice * 13 / 100;
+                    CarServiceVM.ServiceHeader.TotalPrice = Math.Round(CarServiceVM.ServiceHeader.TotalPrice, 2);
+                    CarServiceVM.ServiceHeader.Tax = CarServiceVM.ServiceHeader.TotalPrice * .13;
+                    CarServiceVM.ServiceHeader.Tax = Math.Round(CarServiceVM.ServiceHeader.Tax, 2);
                     CarServiceVM.ServiceHeader.FullPrice = CarServiceVM.ServiceHeader.Tax + CarServiceVM.ServiceHeader.TotalPrice;
+                    CarServiceVM.ServiceHeader.FullPrice = Math.Round(CarServiceVM.ServiceHeader.FullPrice, 2);
                 }
                 CarServiceVM.ServiceHeader.CarId = CarServiceVM.Car.Id;
 
