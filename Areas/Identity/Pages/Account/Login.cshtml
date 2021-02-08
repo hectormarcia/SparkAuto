@@ -34,8 +34,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Log in</button>
-                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="btn btn-light mt-2 mt-md-0">Register as a new user</a>
+                            <button type="submit" class="btn btn-primary rounded-pill px-5">Log in</button>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="btn btn-light mt-2 mt-md-0 rounded-pill">Register as a new user</a>
                         </div>
                         <div class="form-group">
                             <p>
@@ -70,7 +70,7 @@
                         <p>
                             @foreach (var provider in Model.ExternalLogins)
                             {
-                                <button type="submit" class="btn btn-facebook" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
+                                <button type="submit" class="btn btn-facebook rounded-pill" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">
                                     <i class="fab fa-facebook-f mr-4"></i> Sign In By @provider.DisplayName
                                 </button>
                             }

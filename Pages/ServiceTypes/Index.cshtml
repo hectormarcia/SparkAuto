@@ -8,7 +8,7 @@
 <header class="page-header bg-primary pb-10">
     <div class="container py-4">
         <div class="row">
-            <div class="col-8 align-self-center">
+            <div class="col-8 align-self-end">
                 <h1 class="text-white mt-5">Service Type List</h1>
                 <a asp-page="Create" class="btn btn-outline-white rounded-pill mt-2">
                     <i class="fal fa-plus"></i>&nbsp;Create New
@@ -52,14 +52,14 @@
                                     $@Html.DisplayFor(m => item.Price)
                                 </td>
                                 <td class="fit">
-                                    <div class="btn-group" role="group">
-                                        <a class="btn btn-outline-primary btn-sm" asp-page="Edit" asp-route-Id="@item.Id">
+                                    <div >
+                                        <a class="btn btn-primary btn-sm rounded-pill px-3" asp-page="Edit" asp-route-Id="@item.Id">
                                             <i class="fas fa-edit mr-2"></i> Edit
                                         </a>
-                                        <a class="btn btn-outline-secondary btn-sm" asp-page="Details" asp-route-Id="@item.Id">
+                                        <a class="btn btn-secondary btn-sm rounded-pill px-3" asp-page="Details" asp-route-Id="@item.Id">
                                             <i class="far fa-list-alt mr-2"></i> Details
                                         </a>
-                                        <a class="btn btn-outline-danger btn-sm" asp-page="Delete" asp-route-Id="@item.Id">
+                                        <a class="btn btn-danger btn-sm rounded-pill px-3" asp-page="Delete" asp-route-Id="@item.Id">
                                             <i class="fas fa-trash-alt mr-2"></i> Delete
                                         </a>
                                     </div>

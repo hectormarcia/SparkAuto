@@ -95,10 +95,10 @@ else
                                 @Html.DisplayFor(m => item.DateAdded)
                             </td>
                             <td class="fit">
-                                <a asp-page="Details" class="btn btn-secondary btn-sm" asp-route-serviceid="@item.Id">
+                                <a asp-page="Details" class="btn btn-secondary rounded-pill btn-sm px-3" asp-route-serviceid="@item.Id">
                                     <i class="fas fa-list-alt mr-2"></i> Details
                                 </a>
-                                <a asp-page="../Invoices/Invoice" target="_blank" class="btn btn-success btn-sm"
+                                <a asp-page="../Invoices/Invoice" target="_blank" class="btn btn-success btn-sm rounded-pill px-3"
                                     asp-route-serviceid="@item.Id">
                                     <i class="fas fa-list-alt mr-2"></i> Invoice
                                 </a>
