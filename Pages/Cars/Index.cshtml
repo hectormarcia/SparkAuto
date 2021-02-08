@@ -8,25 +8,31 @@
 
 <partial name="_StatusMessage" model="Model.StatusMessage" />
 
-<h2 class="text-info py-2">Car Record For Customer</h2>
-
-<div class="container backgroundWhite">
-    <div class="card">
-        <div class="card-header bg-dark text-light ml-0 row container">
-            <div class="col-6">
-                <i class="fas fa-car"></i>
+<header class="page-header bg-primary pb-10">
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-9 align-self-end">
+                <a asp-page="/Users/Index" class="btn btn-outline-white btn-sm btn-icon">
+                    <i class="fal fa-arrow-left"></i>
+                </a>
+                <h2 class="text-white py-2">Car Record For Customer</h2>
             </div>
-            <div class="col-6 text-right">
-                
-                    <a asp-page="/Users/Index" class="btn btn-outline-info btn-sm">Back to Users</a>
-                
-            </div>
+            <div class="col-3"><img src="~/images/undraw/car.png" alt="" class="img-fluid"></div>
         </div>
+    </div>
+</header>
+
+
+
+<div class="container mt-n10">
+    <div class="card">
+
         <div class="card-body">
             <div class="row" style="padding-bottom:40px; padding-top:20px;">
                 <div class="col-md-3">
                     <p>
-                        <a asp-page="Create" asp-route-userId="@Model.CarAndCustVM.UserObj.Id" class="btn btn-info form-control">
+                        <a asp-page="Create" asp-route-userId="@Model.CarAndCustVM.UserObj.Id"
+                            class="btn btn-primary rounded-pill">
                             <i class="fas fa-plus"></i> &nbsp; Add New Car
                         </a>
                     </p>
@@ -66,21 +72,21 @@
             }
             else
             {
-                <table class="table table-striped border">
-                    <tr class="table-secondary">
-                        <th>
+                <table class="table table-bordered table-responsive">
+                    <tr>
+                        <th class="text-indigo fit">
                             @Html.DisplayNameFor(m => m.CarAndCustVM.Cars.FirstOrDefault().VIN)
                         </th>
-                        <th>
+                        <th class="text-indigo fit">
                             @Html.DisplayNameFor(m => m.CarAndCustVM.Cars.FirstOrDefault().Make)
                         </th>
-                        <th>
+                        <th class="text-indigo fit">
                             @Html.DisplayNameFor(m => m.CarAndCustVM.Cars.FirstOrDefault().Model)
                         </th>
-                        <th>
+                        <th class="text-indigo fit">
                             @Html.DisplayNameFor(m => m.CarAndCustVM.Cars.FirstOrDefault().Color)
                         </th>
-                        <th>
+                        <th class="text-indigo fit">
                             @Html.DisplayNameFor(m => m.CarAndCustVM.Cars.FirstOrDefault().Miles)
                         </th>
                         <th></th>
@@ -92,45 +98,45 @@
                     </tr>
                     @foreach (var item in Model.CarAndCustVM.Cars)
                     {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(m => item.VIN)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.Make)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.Model)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.Color)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.Miles)
-                    </td>
-                    <td>
-                        <a class="btn btn-secondary" asp-page="../Services/History" asp-route-carId="@item.Id">
-                            <i class="fas fa-wrench"></i> &nbsp; New History
-                        </a>
-                    </td>
+                        <tr>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.VIN)
+                            </td>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.Make)
+                            </td>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.Model)
+                            </td>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.Color)
+                            </td>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.Miles)
+                            </td>
+                            <td class="fit">
+                                <a class="btn btn-secondary btn-sm rounded-pill d-block" asp-page="../Services/History"
+                                    asp-route-carId="@item.Id">
+                                    <i class="fas fa-wrench"></i> &nbsp; New History
+                                </a>
+                            </td>
 
-                    <td>
-                        <a class="btn btn-success" asp-page="../Services/Create" asp-route-carId="@item.Id">
-                            <i class="fas fa-plus"></i> &nbsp; New Service
-                        </a>
-                    </td>
+                            <td class="fit">
+                                <a class="btn btn-success btn-sm rounded-pill d-block" asp-page="../Services/Create"
+                                    asp-route-carId="@item.Id">
+                                    <i class="fas fa-plus"></i> &nbsp; New Service
+                                </a>
+                            </td>
 
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a class="btn btn-primary text-white" asp-page="Edit" asp-route-Id="@item.Id">
-                                <i class="fas fa-edit"></i>
-                            </a>   &nbsp; &nbsp;
-                            <a class="btn btn-danger text-white" asp-page="Delete" asp-route-Id="@item.Id">
-                                <i class="fas fa-trash-alt"></i>
-                            </a>
-                        </div>
-                    </td>
-                </tr>
+                            <td class="fit">
+                                <a class="btn btn-primary btn-icon btn-sm" asp-page="Edit" asp-route-Id="@item.Id">
+                                        <i class="fas fa-pencil"></i>
+                                </a>
+                                <a class="btn btn-danger btn-icon btn-sm" asp-page="Delete" asp-route-Id="@item.Id">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
                     }
                 </table>
             }

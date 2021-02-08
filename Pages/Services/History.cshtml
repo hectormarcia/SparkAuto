@@ -1,101 +1,112 @@
 ﻿@page
 @model SparkAuto.Pages.Services.HistoryModel
-@{ ViewData["Title"] = "History";
-    Layout = "~/Pages/Shared/_Layout.cshtml"; }
+@{
+    ViewData["Title"] = "History";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
 
-
-<div class="container pt-4 pb-2 row">
-    <div class="col-6">
-        <h2 class="text-info py-2">Service History</h2>
+<header class="page-header pb-10 bg-primary">
+    <div class="container py-4">
+        <div class="row">
+            <div class="col">
+                <a asp-page="../Cars/Index" asp-route-userId="@Model.UserId"
+                    class="btn btn-outline-white btn-sm btn-icon"><i class="fal fa-arrow-left"></i></a>
+                <h2 class="text-white mt-2">Service History</h2>
+            </div>
+        </div>
     </div>
-    <div class="col-3 offset-3 text-right py-2">
-        <a asp-page="../Cars/Index" asp-route-userId="@Model.UserId" class="btn btn-outline-success form-control"> Back to List</a>
+</header>
+
+<div class="container mt-n10">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="card card-icon">
+                <div class="row no-gutters">
+                    <div class="col-auto card-icon-aside bg-white">
+                        <i class="fal fa-user"></i>
+                    </div>
+                    <div class="col align-self-center">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">@Model.ServiceHeader[0].Car.ApplicationUser.Name</h5>
+                            <p class="card-text m-0 p-0">@Model.ServiceHeader[0].Car.ApplicationUser.Email / @Model.ServiceHeader[0].Car.ApplicationUser.PhoneNumber</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mt-4 mt-md-0">
+            <div class="card card-icon">
+                <div class="row no-gutters">
+                    <div class="col-auto card-icon-aside bg-white">
+                        <i class="fal fa-car"></i>
+                    </div>
+                    <div class="col align-self-center">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">@Model.ServiceHeader[0].Car.Make @Model.ServiceHeader[0].Car.Model @Model.ServiceHeader[0].Car.Style</h5>
+                            <p class="card-text m-0 p-0">@Model.ServiceHeader[0].Car.Year</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 @if (Model.ServiceHeader.Count == 0)
 {
-    <div class="backgroundWhite">
+    <div class="card p-5 mt-4">
         <p>No Service record found...</p>
     </div>
 }
 else
 {
-    <div class="container backgroundWhite">
+    <div class="container mt-4">
         <div class="card">
-            <div class="card-header bg-dark text-light ml-0 row container">
-                <div class="col-1 text-center pt-3 text-white-50 ">
-                    <i class="far fa-user fa-2x"></i>
-                </div>
-                <div class="col-5">
-                    <label class="text-info">@Model.ServiceHeader[0].Car.ApplicationUser.Name</label><br />
-                    <label class="text-info">@Model.ServiceHeader[0].Car.ApplicationUser.Email / @Model.ServiceHeader[0].Car.ApplicationUser.PhoneNumber</label><br />
-
-                </div>
-
-                <div class="col-5 text-right">
-                    <label class="text-info">@Model.ServiceHeader[0].Car.Make @Model.ServiceHeader[0].Car.Model @Model.ServiceHeader[0].Car.Style</label><br />
-                    <label class="text-info">@Model.ServiceHeader[0].Car.Year </label>
-                </div>
-                <div class="col-1 text-center pt-3 text-white-50 ">
-                    <i class="fas fa-car fa-2x"></i>
-                </div>
-            </div>
             <div class="card-body">
-
-                <table class="table table-striped border">
-                    <tr class="table-secondary">
-                        <th>
+                <table class="table table-bordered table-responsive">
+                    <tr class="">
+                        <th class="text-indigo">
                             @Html.DisplayNameFor(m => Model.ServiceHeader[0].Miles)
                         </th>
-                        <th>
+                        <th class="text-indigo">
                             @Html.DisplayNameFor(m => Model.ServiceHeader[0].TotalPrice)
                         </th>
-                        <th>
+                        <th class="text-indigo">
                             @Html.DisplayNameFor(m => Model.ServiceHeader[0].Details)
                         </th>
-                        <th>
+                        <th class="text-indigo">
                             @Html.DisplayNameFor(m => Model.ServiceHeader[0].DateAdded)
-                        </th>                        
-                        <th>
-
                         </th>
+                        <th>Actions</th>
                     </tr>
                     @foreach (var item in Model.ServiceHeader)
                     {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(m => item.Miles)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.TotalPrice)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.Details)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.DateAdded)
-                    </td>
-                    <td>
-                        <a asp-page="Details" class="btn btn-info form-control" asp-route-serviceid="@item.Id">
-                            <i class="fas fa-list-alt"></i> Details
-                        </a>
-                    </td>
-                    <td>
-                        <a asp-page="../Invoices/Invoice" target="_blank" class="btn btn-success form-control" asp-route-serviceid="@item.Id">
-                            <i class="fas fa-list-alt"></i> Invoice
-                        </a>
-                    </td>
-                    
-                </tr>
+                        <tr>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.Miles)
+                            </td>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.TotalPrice)
+                            </td>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.Details)
+                            </td>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.DateAdded)
+                            </td>
+                            <td class="fit">
+                                <a asp-page="Details" class="btn btn-secondary btn-sm" asp-route-serviceid="@item.Id">
+                                    <i class="fas fa-list-alt mr-2"></i> Details
+                                </a>
+                                <a asp-page="../Invoices/Invoice" target="_blank" class="btn btn-success btn-sm"
+                                    asp-route-serviceid="@item.Id">
+                                    <i class="fas fa-list-alt mr-2"></i> Invoice
+                                </a>
+                            </td>
+                        </tr>
                     }
-                   
-
                 </table>
-
-               
             </div>
         </div>
     </div>
-
 }

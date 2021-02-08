@@ -5,65 +5,75 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-
-<br />
-<br />
-
-<div class="boder backgroundWhite">
-    <div class="row">
-        <div class="col-6">
-            <h2 class="text-info">Service Type List</h2>
-        </div>
-        <div class="col-6 text-right">
-            <a asp-page="Create" class="btn btn-info">
-                <i class="fas fa-plus"></i>&nbsp;Create New
-            </a>
+<header class="page-header bg-primary pb-10">
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-8 align-self-center">
+                <h1 class="text-white mt-5">Service Type List</h1>
+                <a asp-page="Create" class="btn btn-outline-white rounded-pill mt-2">
+                    <i class="fal fa-plus"></i>&nbsp;Create New
+                </a>
+            </div>
+            <div class="col-4">
+                <img src="~/images/undraw/grua.png" alt="" class="img-fluid float-right">
+            </div>
         </div>
     </div>
-    <br />
-    <div>
-        @if (Model.ServiceType.Count == 0)
-        {
-            <p> No Service Type to Display. Please create a new Service Type</p>
-        }
-        else
-        {
-            <table class="table table-striped border">
-                <tr class="table-secondary">
-                    <th>
-                        @Html.DisplayNameFor(m => m.ServiceType[0].Name)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(m => m.ServiceType[0].Price)
-                    </th>
-                    <th></th>
-                </tr>
-                @foreach(var item in Model.ServiceType)
-                {
-            <tr>
-                <td>
-                    @Html.DisplayFor(m => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => item.Price)
-                </td>
-                <td style="width:150px">
-                    <div class="btn-group" role="group">
-                        <a class="btn btn-primary text-white" asp-page="Edit" asp-route-Id="@item.Id">
-                            <i class="fas fa-edit"></i>
-                        </a>
-                        <a class="btn btn-success text-white" asp-page="Details" asp-route-Id="@item.Id">
-                            <i class="far fa-list-alt"></i>
-                        </a>
-                        <a class="btn btn-danger text-white" asp-page="Delete" asp-route-Id="@item.Id">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-                }
-            </table>
-        }
+</header>
+
+<div class="container mt-n10">
+    <div class="card p-5">
+
+        <div class="row">
+            @if (Model.ServiceType.Count == 0)
+            {
+                <p> No Service Type to Display. Please create a new Service Type</p>
+            }
+            else
+            {
+                <div class="col-12">
+                    <table class="table table-bordered table-hover table-responsive" width="100%">
+                        <tr>
+                            <th class="text-indigo">
+                                @Html.DisplayNameFor(m => m.ServiceType[0].Name)
+                            </th>
+                            <th class="text-indigo">
+                                @Html.DisplayNameFor(m => m.ServiceType[0].Price)
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+                        @foreach (var item in Model.ServiceType)
+                        {
+                            <tr>
+                                <td class="fit">
+                                    @Html.DisplayFor(m => item.Name)
+                                </td>
+                                <td class="fit">
+                                    $@Html.DisplayFor(m => item.Price)
+                                </td>
+                                <td class="fit">
+                                    <div class="btn-group" role="group">
+                                        <a class="btn btn-outline-primary btn-sm" asp-page="Edit" asp-route-Id="@item.Id">
+                                            <i class="fas fa-edit mr-2"></i> Edit
+                                        </a>
+                                        <a class="btn btn-outline-secondary btn-sm" asp-page="Details" asp-route-Id="@item.Id">
+                                            <i class="far fa-list-alt mr-2"></i> Details
+                                        </a>
+                                        <a class="btn btn-outline-danger btn-sm" asp-page="Delete" asp-route-Id="@item.Id">
+                                            <i class="fas fa-trash-alt mr-2"></i> Delete
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            }
+        </div>
+
     </div>
+
+
+
 </div>
-
+</div>

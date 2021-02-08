@@ -10,15 +10,17 @@
 <div class="row">
     <div class="col-md-6">
         <p>Your account contains personal data that you have given us. This page allows you to download or delete that data.</p>
-        <p>
-            <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
-        </p>
-        <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group">
-            <button class="btn btn-primary" type="submit">Download</button>
-        </form>
-        <p>
-            <a id="delete" asp-page="DeletePersonalData" class="btn btn-secondary">Delete</a>
-        </p>
+        <p><strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong></p>
+        <div class="row">
+            <div class="col">
+                <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group">
+                    <button class="btn btn-primary" type="submit"> <i class="fal fa-download mr-2"></i> Download</button>
+                </form>
+            </div>
+            <div class="col">
+                <a id="delete" asp-page="DeletePersonalData" class="btn btn-danger"> <i class="fal fa-times mr-2"></i> Delete Data</a>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -4,7 +4,18 @@
     ViewData["Title"] = "Access denied";
 }
 
-<header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">You do not have access to this resource.</p>
-</header>
+<div class="container mt-4">
+    <div class="card card-icon">
+        <div class="row no-gutters">
+            <div class="col-auto card-icon-aside bg-danger">
+                <i class="fal fa-exclamation-triangle text-white"></i>
+            </div>
+            <div>
+                <div class="card-body p-5">
+                    <h1 class="text-danger">@ViewData["Title"]</h1>
+                    <p class="text-danger">You do not have access to this resource.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

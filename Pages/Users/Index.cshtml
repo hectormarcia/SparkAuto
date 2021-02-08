@@ -5,99 +5,104 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<form method="get" asp-page="Index">
-    <br />
-    <br />
-    <div class="row">
-        <div class="col-6">
-            <h2 class="text-info">Customer List</h2>
-        </div>
-        <div class="col-6 text-right">
-            <a asp-page="/Account/Register" asp-area="Identity" class="btn btn-info">
-                <i class="fas fa-plus"></i>&nbsp;Create New Customer
-            </a>
+<header class="page-header bg-primary pb-10">
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-8">
+                <h1 class="text-white mt-5">Customer List</h1>
+                <a asp-page="/Account/Register" asp-area="Identity" class="btn btn-outline-white rounded-pill mt-2">
+                    <i class="fal fa-plus"></i>&nbsp;Create New Customer
+                </a>
+            </div>
+            <div class="col-4">
+                <img src="~/images/undraw/grua.png" alt="" class="img-fluid">
+            </div>
         </div>
     </div>
+</header>
 
-    <div class="border backgroundWhite">
 
-        <div style="height:60px;" class="container border border-secondary">
+
+
+<div class="container mt-n10">
+    <form method="get" asp-page="Index">
+        <div class="card p-5 mt-4">
             <div class="row">
-                <div class="col-11">
+                <div class="col-12 col-md-11">
                     <div class="row" style="padding-top:10px">
-                        <div class="col-4">
-                            @Html.Editor("searchEmail", new { htmlAttributes = new { @class = "form-control", placeholder = "Email..." } })
+                        <div class="col-12 col-md-4 mb-2 mb-md-0">
+                            @Html.Editor("searchEmail", new { htmlAttributes = new { @class = "form-control",
+                                        placeholder = "Email..." } })
                         </div>
-                        <div class="col-4">
-                            @Html.Editor("searchName", new { htmlAttributes = new { @class = "form-control", placeholder = "Name..." } })
+                        <div class="col-12 col-md-4 mb-2 mb-md-0">
+                            @Html.Editor("searchName", new { htmlAttributes = new { @class = "form-control", placeholder
+                            = "Name..." } })
                         </div>
-                        <div class="col-4">
-                            @Html.Editor("searchPhone", new { htmlAttributes = new { @class = "form-control", placeholder = "Phone..." } })
+                        <div class="col-12 col-md-4 mb-2 mb-md-0">
+                            @Html.Editor("searchPhone", new { htmlAttributes = new { @class = "form-control",
+                                        placeholder = "Phone..." } })
                         </div>
                     </div>
                 </div>
-                <div class="col-1">
-                    <div class="row" style="padding-top:10px; padding-right:15px;">
-                        <button type="submit" name="submit" value="Search" class="btn btn-info form-control">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+                <div class="col-12 col-md-1 align-self-end text-right">
+                    <button type="submit" name="submit" value="Search" class="btn btn-indigo btn-icon">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <hr />
+
+            <div>
+                <table class="table table-bordered table-responsive" style="width: 100%;">
+                    <tr class="">
+                        <th class="text-indigo">
+                            @Html.DisplayNameFor(m => m.UsersListVM.ApplicationUserList[0].Name)
+                        </th>
+                        <th class="text-indigo">
+                            @Html.DisplayNameFor(m => m.UsersListVM.ApplicationUserList[0].PhoneNumber)
+                        </th>
+                        <th class="text-indigo">
+                            @Html.DisplayNameFor(m => m.UsersListVM.ApplicationUserList[0].Email)
+                        </th>
+                        <th>Cars</th>
+                        <th>Actions</th>
+                    </tr>
+                    @foreach (var item in Model.UsersListVM.ApplicationUserList)
+                    {
+                        <tr role="row" >
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.Name)
+                            </td>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.PhoneNumber)
+                            </td>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.Email)
+                            </td>
+                            <td class="fit">
+                                <a asp-page="../Cars/Index" asp-route-userId="@item.Id"
+                                    class="d-block btn btn-indigo rounded-pill btn-sm">
+                                    <i class="fas fa-car"></i> &nbsp; View Cars
+                                </a>
+                            </td>
+                            <td class="fit">
+                                <a class="btn btn-primary btn-sm rounded-pill px-3" asp-page="Edit" asp-route-Id="@item.Id">
+                                    <i class="fas fa-edit mr-2"></i> Editar
+                                </a>
+                                <a class="btn btn-danger btn-sm rounded-pill px-3" asp-page="Delete"
+                                    asp-route-Id="@item.Id">
+                                    <i class="fal fa-times mr-2"></i> Eliminar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <div page-model="@Model.UsersListVM.PagingInfo" asp-action="Index" page-class="btn border"
+                    page-class-normal="btn btn-light" page-class-selected="btn btn-icon btn-indigo btn-sm active"
+                    class="btn-group">
                 </div>
             </div>
         </div>
-        <br />
-       
-        <div>
-            <table class="table table-striped boarder">
-                <tr class="table-secondary">
-                    <th>
-                        @Html.DisplayNameFor(m => m.UsersListVM.ApplicationUserList[0].Name)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(m => m.UsersListVM.ApplicationUserList[0].PhoneNumber)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(m => m.UsersListVM.ApplicationUserList[0].Email)
-                    </th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                @foreach (var item in Model.UsersListVM.ApplicationUserList)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(m => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(m => item.PhoneNumber)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(m => item.Email)
-                        </td>
-                        <td>
-                            <a asp-page="../Cars/Index" asp-route-userId="@item.Id" style="text-decoration:none;">
-                                <img src="~/images/car.png" width="40"/> &nbsp; View Cars
-                            </a>
-                        </td>                       
-                        <td>
-                            <a class="btn btn-primary text-white" asp-page="Edit" asp-route-Id="@item.Id">
-                                <i class="fas fa-edit"></i>
-                            </a>                          
-                            <a class="btn btn-danger text-white" asp-page="Delete" asp-route-Id="@item.Id">
-                                <i class="fas fa-trash-alt"></i>
-                            </a>
-                        </td>
-                    </tr>
-                }
-                <tr>
-                    <td colspan="5" class="text-right">
-                        <div page-model="@Model.UsersListVM.PagingInfo" asp-action="Index" page-class="btn border"
-                             page-class-normal="btn btn-light" page-class-selected="btn btn-info active" class="btn-group">
-                        </div>
-                        
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</form>
+    </form>
+</div>

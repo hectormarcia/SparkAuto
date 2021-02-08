@@ -5,73 +5,92 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<br />
-<h2 class="text-info">Edit User</h2>
-<br />
-<form method="post">
-    <div class="border backgroundWhite">
-        <input type="hidden" asp-for="ApplicationUser.Id" />
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="ApplicationUser.Name"></label>
+
+<header class="page-header bg-primary pb-10">
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-8 align-self-end">
+                <a asp-page="Index" class="btn btn-icon btn-outline-white btn-sm"> <i class="fa fa-arrow-left"></i> </a>
+                <h1 class="text-white mt-2">Edit User</h1>
             </div>
-            <div class="col-5">
-                <input asp-for="ApplicationUser.Name" class="form-control" />
-            </div>
-            <span asp-validation-for="ApplicationUser.Name" class="text-danger"></span>
-        </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="ApplicationUser.Email"></label>
-            </div>
-            <div class="col-5">
-                <input asp-for="ApplicationUser.Email" class="form-control" readonly="readonly" />
-            </div>
-            <span asp-validation-for="ApplicationUser.Email" class="text-danger"></span>
-        </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="ApplicationUser.PhoneNumber"></label>
-            </div>
-            <div class="col-5">
-                <input asp-for="ApplicationUser.PhoneNumber" class="form-control" />
-            </div>
-            <span asp-validation-for="ApplicationUser.PhoneNumber" class="text-danger"></span>
-        </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="ApplicationUser.Address"></label>
-            </div>
-            <div class="col-5">
-                <input asp-for="ApplicationUser.Address" class="form-control" />
-            </div>
-            <span asp-validation-for="ApplicationUser.Address" class="text-danger"></span>
-        </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="ApplicationUser.City"></label>
-            </div>
-            <div class="col-5">
-                <input asp-for="ApplicationUser.City" class="form-control" />
-            </div>
-            <span asp-validation-for="ApplicationUser.City" class="text-danger"></span>
-        </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="ApplicationUser.PostalCode"></label>
-            </div>
-            <div class="col-5">
-                <input asp-for="ApplicationUser.PostalCode" class="form-control" />
-            </div>
-            <span asp-validation-for="ApplicationUser.PostalCode" class="text-danger"></span>
-        </div>
-        <div class="form-group row">
-            <div class="col-5 offset-2">
-                <partial name="_EditAndBackToListButton" />
+            <div class="col-4">
+                <img src="~/images/undraw/edituser.png" alt="" class="img-fluid float-right" width="150px">
             </div>
         </div>
     </div>
-</form>
+</header>
+
+<div class="container mt-n10">
+    <div class="card p-5">
+        <form method="post">
+            <div class="">
+                <input type="hidden" asp-for="ApplicationUser.Id" />
+                <div class="form-group row">
+                    <div class="col-12 col-md-2">
+                        <label asp-for="ApplicationUser.Name"></label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input asp-for="ApplicationUser.Name" class="form-control" />
+                    </div>
+                    <span asp-validation-for="ApplicationUser.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 col-md-2">
+                        <label asp-for="ApplicationUser.Email"></label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input asp-for="ApplicationUser.Email" class="form-control" readonly="readonly" />
+                    </div>
+                    <span asp-validation-for="ApplicationUser.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 col-md-2">
+                        <label asp-for="ApplicationUser.PhoneNumber"></label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input asp-for="ApplicationUser.PhoneNumber" class="form-control" />
+                    </div>
+                    <span asp-validation-for="ApplicationUser.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 col-md-2">
+                        <label asp-for="ApplicationUser.Address"></label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input asp-for="ApplicationUser.Address" class="form-control" />
+                    </div>
+                    <span asp-validation-for="ApplicationUser.Address" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 col-md-2">
+                        <label asp-for="ApplicationUser.City"></label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input asp-for="ApplicationUser.City" class="form-control" />
+                    </div>
+                    <span asp-validation-for="ApplicationUser.City" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 col-md-2">
+                        <label asp-for="ApplicationUser.PostalCode"></label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input asp-for="ApplicationUser.PostalCode" class="form-control" />
+                    </div>
+                    <span asp-validation-for="ApplicationUser.PostalCode" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12 offset-0 offset-md-2">
+                        <partial name="_EditAndBackToListButton" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -6,34 +6,48 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<br />
-<h2 class="text-info">Details Service type</h2>
-<br />
-<form method="post">
-    <div class="border backgroundWhite">
-        <input type="hidden" asp-for="ServiceType.Id" />
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="ServiceType.Name"></label>
-            </div>
-            <div class="col-5">
-                <input asp-for="ServiceType.Name" class="form-control" readonly="readonly"/>
-            </div>
-            <span asp-validation-for="ServiceType.Name" class="text-danger"></span>
-        </div>
-        <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="ServiceType.Price"></label>
-            </div>
-            <div class="col-5">
-                <input asp-for="ServiceType.Price" class="form-control" readonly="readonly"/>
-            </div>
-            <span asp-validation-for="ServiceType.Price" class="text-danger"></span>
-        </div>
-        <div class="form-group row">
-            <div class="col-5 offset-2">
-                <partial name="_DetailsAndBackToListButton"/>
+<header class="page-header pb-10 bg-primary">
+    <div class="container py-4">
+        <div class="row">
+            <div class="col">
+                <a asp-page="Index" class="btn btn-outline-white btn-sm btn-icon"><i class="fal fa-arrow-left"></i></a>
+                <h2 class="text-white mt-2">Details Service type</h2>
             </div>
         </div>
     </div>
-</form>
+</header>
+
+<div class="container mt-n10">
+    <div class="card p-5">
+
+        <form method="post">
+            <div class="">
+                <input type="hidden" asp-for="ServiceType.Id" />
+                <div class="form-group row">
+                    <div class="col-12">
+                        <label asp-for="ServiceType.Name"></label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input asp-for="ServiceType.Name" class="form-control" readonly="readonly"/>
+                    </div>
+                    <span asp-validation-for="ServiceType.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12">
+                        <label asp-for="ServiceType.Price"></label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input asp-for="ServiceType.Price" class="form-control" readonly="readonly"/>
+                    </div>
+                    <span asp-validation-for="ServiceType.Price" class="text-danger"></span>
+                </div>
+                <div class="form-group row">
+                    <div class="col-12">
+                        <partial name="_DetailsAndBackToListButton"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
