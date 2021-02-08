@@ -112,13 +112,13 @@
                                 <div class="col-12 col-md-7">
                                     <table class="table table-bordered table-responsive">
                                         <tr class="">
-                                            <th>
+                                            <th class="fit">
                                                 @Html.DisplayNameFor(m => Model.CarServiceVM.ServiceTypesList.FirstOrDefault().Name)
                                             </th>
-                                            <th>
+                                            <th class="fit">
                                                 @Html.DisplayNameFor(m => Model.CarServiceVM.ServiceTypesList.FirstOrDefault().Price)
                                             </th>
-                                            <th class="td-center">Actions</th>
+                                            <th class="fit td-center">Actions</th>
                                         </tr>
 
                                         @foreach (var item in Model.CarServiceVM.ServiceShoppingCart)
@@ -130,7 +130,7 @@
                                                 <td class="fit">
                                                     @Html.DisplayFor(m => item.ServiceType.Price)
                                                 </td>
-                                                <td class="td-center">
+                                                <td class="fit td-center">
                                                     <button type="submit" asp-page-handler="RemoveFromCart" asp-route-serviceTypeId="@item.ServiceTypeId" class="btn btn-danger btn-sm">
                                                         <i class="far fa-trash-alt"></i>
                                                     </button>
@@ -177,7 +177,6 @@
                                     <div class="row py-2">
                                         <div class="col-12">
                                             <textarea placeholder="Comments..." asp-for="CarServiceVM.ServiceHeader.Details" class="form-control" style="height:100px">
-
                                         </textarea>
                                         </div>
                                     </div>
