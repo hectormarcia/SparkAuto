@@ -28,7 +28,7 @@ namespace SparkAuto.Pages.Users
         [BindProperty]
         public UsersListViewModel UsersListVM { get; set; }
 
-        public async Task<IActionResult> OnGet(int productPage=1, string searchEmail=null, string searchName=null, string searchPhone=null)
+        public async Task<IActionResult> OnGet(int productPage=1, string searchPlate=null, string searchEmail=null, string searchName=null, string searchPhone=null)
         {
             UsersListVM = new UsersListViewModel()
             {
@@ -37,6 +37,10 @@ namespace SparkAuto.Pages.Users
 
             StringBuilder param = new StringBuilder();
             param.Append("/Users?productPage=:");
+            param.Append("&seachPlate=");
+            if(searchPlate != null){
+                param.Append(searchPlate);
+            }
             param.Append("&searchName=");
             if(searchName!=null)
             {
@@ -53,27 +57,32 @@ namespace SparkAuto.Pages.Users
                 param.Append(searchPhone);
             }
 
+            
 
-            if(searchEmail!=null)
-            {
-                UsersListVM.ApplicationUserList = await _db.ApplicationUser.Where(u => u.Email.ToLower().Contains(searchEmail.ToLower())).ToListAsync();
-            }
-            else
-            {
-                if (searchName != null)
+            if(searchPlate != null){
+                Car car = await _db.Car.Where(x => x.VIN.Equals(searchPlate)).FirstOrDefaultAsync();
+                string userid = car != null ? car.UserId : "0";
+                UsersListVM.ApplicationUserList = await _db.ApplicationUser.Where(u => u.Id.Equals(userid)).ToListAsync();
+            }else{
+                if(searchEmail!=null)
                 {
-                    UsersListVM.ApplicationUserList = await _db.ApplicationUser.Where(u => u.Name.ToLower().Contains(searchName.ToLower())).ToListAsync();
+                    UsersListVM.ApplicationUserList = await _db.ApplicationUser.Where(u => u.Email.ToLower().Contains(searchEmail.ToLower())).ToListAsync();
                 }
-                else 
+                else
                 {
-                    if (searchPhone != null)
+                    if (searchName != null)
                     {
-                        UsersListVM.ApplicationUserList = await _db.ApplicationUser.Where(u => u.PhoneNumber.ToLower().Contains(searchPhone.ToLower())).ToListAsync();
-                }
+                        UsersListVM.ApplicationUserList = await _db.ApplicationUser.Where(u => u.Name.ToLower().Contains(searchName.ToLower())).ToListAsync();
+                    }
+                    else 
+                    {
+                        if (searchPhone != null)
+                        {
+                            UsersListVM.ApplicationUserList = await _db.ApplicationUser.Where(u => u.PhoneNumber.ToLower().Contains(searchPhone.ToLower())).ToListAsync();
+                        }
+                    }
                 }
             }
-
-
 
             var count = UsersListVM.ApplicationUserList.Count;
 

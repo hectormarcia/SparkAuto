@@ -30,15 +30,19 @@
             <div class="row">
                 <div class="col-12 col-md-11">
                     <div class="row" style="padding-top:10px">
-                        <div class="col-12 col-md-4 mb-2 mb-md-0">
+                        <div class="col-12 col-md-3 mb-2 mb-md-0">
+                            @Html.Editor("searchPlate", new { htmlAttributes = new { @class = "form-control",
+                                        placeholder = "Plate Number..." } })
+                        </div>
+                        <div class="col-12 col-md-3 mb-2 mb-md-0">
                             @Html.Editor("searchEmail", new { htmlAttributes = new { @class = "form-control",
                                         placeholder = "Email..." } })
                         </div>
-                        <div class="col-12 col-md-4 mb-2 mb-md-0">
+                        <div class="col-12 col-md-3 mb-2 mb-md-0">
                             @Html.Editor("searchName", new { htmlAttributes = new { @class = "form-control", placeholder
                             = "Name..." } })
                         </div>
-                        <div class="col-12 col-md-4 mb-2 mb-md-0">
+                        <div class="col-12 col-md-3 mb-2 mb-md-0">
                             @Html.Editor("searchPhone", new { htmlAttributes = new { @class = "form-control",
                                         placeholder = "Phone..." } })
                         </div>
@@ -96,6 +100,10 @@
                                 </a>
                             </td>
                         </tr>
+                    }
+                    @if (Model.UsersListVM.ApplicationUserList.Count == 0)
+                    {
+                        <td class="fit" colspan="5">No matching results found</td>
                     }
                 </table>
                 <div page-model="@Model.UsersListVM.PagingInfo" asp-action="Index" page-class="btn border"
