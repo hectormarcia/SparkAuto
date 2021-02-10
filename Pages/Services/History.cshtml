@@ -77,6 +77,9 @@ else
                         <th class="text-indigo">
                             @Html.DisplayNameFor(m => Model.ServiceHeader[0].DateAdded)
                         </th>
+                        <th class="text-indigo">
+                            @Html.DisplayNameFor(m => Model.ServiceHeader[0].NextServiceDate)
+                        </th>
                         <th>Actions</th>
                     </tr>
                     @foreach (var item in Model.ServiceHeader)
@@ -86,13 +89,16 @@ else
                                 @Html.DisplayFor(m => item.Miles)
                             </td>
                             <td class="fit">
-                                @Html.DisplayFor(m => item.TotalPrice)
+                                @String.Format("${0:0.00}",item.TotalPrice)
                             </td>
                             <td class="fit">
                                 @Html.DisplayFor(m => item.Details)
                             </td>
                             <td class="fit">
                                 @Html.DisplayFor(m => item.DateAdded)
+                            </td>
+                            <td class="fit">
+                                @Html.DisplayFor(m => item.NextServiceDate)
                             </td>
                             <td class="fit">
                                 <a asp-page="Details" class="btn btn-secondary rounded-pill btn-sm px-3" asp-route-serviceid="@item.Id">

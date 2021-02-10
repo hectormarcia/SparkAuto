@@ -69,11 +69,13 @@
                         <th class="text-indigo">
                             @Html.DisplayNameFor(m => m.UsersListVM.ApplicationUserList[0].Email)
                         </th>
+                        <th>SMS</th>
                         <th>Cars</th>
                         <th>Actions</th>
                     </tr>
                     @foreach (var item in Model.UsersListVM.ApplicationUserList)
                     {
+
                         <tr role="row" >
                             <td class="fit">
                                 @Html.DisplayFor(m => item.Name)
@@ -85,11 +87,18 @@
                                 @Html.DisplayFor(m => item.Email)
                             </td>
                             <td class="fit">
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" id="@(item.Id)SMSCheck" type="checkbox" checked="true">
+                                    <label class="custom-control-label" for="@(item.Id)SMSCheck">Send SMS</label>
+                                </div>
+                            </td>
+                            <td class="fit">
                                 <a asp-page="../Cars/Index" asp-route-userId="@item.Id"
                                     class="d-block btn btn-indigo rounded-pill btn-sm">
                                     <i class="fas fa-car"></i> &nbsp; View Cars
                                 </a>
                             </td>
+                            
                             <td class="fit">
                                 <a class="btn btn-primary btn-sm rounded-pill px-3" asp-page="Edit" asp-route-Id="@item.Id">
                                     <i class="fas fa-edit mr-2"></i> Editar

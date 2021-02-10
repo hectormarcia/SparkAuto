@@ -27,6 +27,10 @@ namespace SparkAuto.Models
         [DisplayFormat(DataFormatString = "{0:MMM dd yyyy}"), Display(Name ="Service Date")]
         public DateTime DateAdded { get; set; }
 
+        [Required]
+        [DisplayFormat(DataFormatString = "{0:MMM dd yyyy}"), Display(Name ="Next Service Date")]
+        public DateTime NextServiceDate { get; set; }
+
         public int CarId { get; set; }
 
         [ForeignKey("CarId")]
