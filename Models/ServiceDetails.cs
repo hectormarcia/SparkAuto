@@ -20,6 +20,7 @@ namespace SparkAuto.Models
         [ForeignKey("ServiceTypeId")]
         public virtual ServiceType ServiceType { get; set; }
 
+        [Column("ServicePrice")]
         public double ServicePrice { get; set; }
         public string ServiceName { get; set; }
     }

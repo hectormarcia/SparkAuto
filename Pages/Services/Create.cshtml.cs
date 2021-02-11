@@ -76,6 +76,8 @@ namespace SparkAuto.Pages.Services
             if (ModelState.IsValid)
             {
                 CarServiceVM.ServiceHeader.DateAdded = DateTime.Now;
+                CarServiceVM.ServiceHeader.NextServiceDate = DateTime.Now.AddDays(90);
+
                 CarServiceVM.ServiceShoppingCart = _db.ServiceShoppingCart.Include(c => c.ServiceType).Where(c => c.CarId == CarServiceVM.Car.Id).ToList();
                 foreach (var item in CarServiceVM.ServiceShoppingCart)
                 {
@@ -93,6 +95,8 @@ namespace SparkAuto.Pages.Services
 
                 foreach (var detail in CarServiceVM.ServiceShoppingCart)
                 {
+                    Console.WriteLine(detail.ServiceType.Price);
+
                     ServiceDetails serviceDetails = new ServiceDetails
                     {
                         ServiceHeaderId = CarServiceVM.ServiceHeader.Id,
@@ -100,14 +104,13 @@ namespace SparkAuto.Pages.Services
                         ServicePrice = detail.ServiceType.Price,
                         ServiceTypeId = detail.ServiceTypeId
                     };
-
                     _db.ServiceDetails.Add(serviceDetails);
 
                 }
+
                 _db.ServiceShoppingCart.RemoveRange(CarServiceVM.ServiceShoppingCart);
 
                 await _db.SaveChangesAsync();
-
                 return RedirectToPage("../Cars/Index", new { userId = CarServiceVM.Car.UserId });
             }
 
