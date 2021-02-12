@@ -110,6 +110,11 @@ namespace SparkAuto.Pages.Services
 
                 _db.ServiceShoppingCart.RemoveRange(CarServiceVM.ServiceShoppingCart);
 
+                //ACTUALIZACION DE MILLAS 
+                CarServiceVM.Car.Miles = CarServiceVM.ServiceHeader.Miles;
+                _db.Car.Attach(CarServiceVM.Car);
+                _db.Entry(CarServiceVM.Car).Property(x => x.Miles).IsModified = true;
+
                 await _db.SaveChangesAsync();
                 return RedirectToPage("../Cars/Index", new { userId = CarServiceVM.Car.UserId });
             }

@@ -46,7 +46,7 @@
                     <div class="col align-self-center">
                         <div class="card-body">
                             <h5 class="card-title mb-0">@Model.CarServiceVM.Car.Make @Model.CarServiceVM.Car.Model @Model.CarServiceVM.Car.Style</h5>
-                            <p class="card-text">@Model.CarServiceVM.Car.Year</p>
+                            <p class="card-text">@Model.CarServiceVM.Car.Year / @Model.CarServiceVM.Car.Miles miles</p>
                         </div>
                     </div>
                 </div>
@@ -171,6 +171,7 @@
                                             <label asp-for="CarServiceVM.ServiceHeader.Miles"></label>
                                         </div>
                                         <div class="col-12">
+                                            <input type="hidden" value=@(Model.CarServiceVM.Car.Miles) id="Lastmiles">
                                             <input asp-for="CarServiceVM.ServiceHeader.Miles" id="txtMiles" class="form-control" />
                                         </div>
                                     </div>
@@ -203,13 +204,15 @@
 
     <script>
         function validateInput() {
-            var miles = document.getElementById("txtMiles").value;
+            var miles = parseInt($("#txtMiles").val());
+            var lastmiles = parseInt($("#Lastmiles").val());
 
-            if (miles < 1) {
-                swal("Error!", "Miles cannot be empty or 0", "error");
+            if (miles < lastmiles) {
+                swal("Error!","The miles entered must be greater than or equal to the previous record (" + lastmiles + " miles)","error");
                 return false;
             }
 
+            return true;
         }
     </script>
 
