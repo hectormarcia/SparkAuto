@@ -1,268 +1,139 @@
 ﻿@page
 @model SparkAuto.Pages.Services.InvoiceModel
 @{
-    Layout = null; ;
+    Layout = null;
     ViewData["Title"] = "Invoice";
 }
 
-
+<link rel="stylesheet" href="~/css/theme.css">
 
 <head>
-
     <style>
-    .invoice-box {
-        max-width: 800px;
-        margin: auto;
-        padding: 30px;
-        border: 1px solid #eee;
-        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-        font-size: 16px;
-        line-height: 24px;
-        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-        color: #555;
-    }
-
-    .invoice-box table {
-        width: 100%;
-        line-height: inherit;
-        text-align: left;
-    }
-
-    .invoice-box table td {
-        padding: 5px;
-        vertical-align: top;
-    }
-
-    .invoice-box table tr td:nth-child(2) {
-        text-align: right;
-    }
-
-    .invoice-box table tr.top table td {
-        padding-bottom: 20px;
-    }
-
-    .invoice-box table tr.top table td.title {
-        font-size: 45px;
-        line-height: 45px;
-        color: #333;
-    }
-
-    .invoice-box table tr.information table td {
-        padding-bottom: 40px;
-    }
-
-    .invoice-box table tr.heading td {
-        background: #eee;
-        border-bottom: 1px solid #ddd;
-        font-weight: bold;
-    }
-
-    .invoice-box table tr.details td {
-        padding-bottom: 20px;
-    }
-
-    .invoice-box table tr.item td{
-        border-bottom: 1px solid #eee;
-    }
-
-    .invoice-box table tr.item.last td {
-        border-bottom: none;
-    }
-
-    .invoice-box table tr.total td:nth-child(2) {
-        border-top: 2px solid #eee;
-        font-weight: bold;
-    }
-
-    @*/** @media only screen and (max-width: 600px) **/*@
-        .invoice-box table tr.top table td {
-            width: 100%;
-            display: block;
-            text-align: center;
+        #invoice{
+            max-width: 800px;
+            margin: auto;
+            padding: 16px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #555;
         }
 
-        .invoice-box table tr.information table td {
-            width: 100%;
-            display: block;
-            text-align: center;
+        .invoice-container{
+            border: 1px solid #ccc;
+            padding: 32px;
         }
-    }
-
-    /** RTL **/
-    .rtl {
-        direction: rtl;
-        font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-    }
-
-    .rtl table {
-        text-align: right;
-    }
-
-    .rtl table tr td:nth-child(2) {
-        text-align: left;
-    }
+        
     </style>
 </head>
-<body asp-for="TxtHTMLCode">
-    <div class="invoice-box">
-        <table cellpadding="0" cellspacing="0">
-            <tr class="top">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td class="title">
-                                <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:300px;">
-                            </td>
-
-                            <td>
-                                Invoice #: 123<br>
-                                Created: January 1, 2015<br>
-                                Due: February 1, 2015
-                            </td>
-                        </tr>
-                    </table>
-                </td>
+<div class="d-flex justify-content-center py-4">
+    <button type="button" id="btnprintpdf" class="btn btn-dark rounded-pill">Imprimir Factura</button>
+</div>
+<div id="invoice" class="bg-white">
+    <div class="invoice-container">
+        <div class="row">
+            <div class="col">
+                <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:300px;">
+            </div>
+            <div class="col">
+                <p class="m-0 text-right"> @(Model.serviceHeader.DateAdded.ToString("dddd, dd MMMM yyyy")) </p>
+                <p class="m-0 text-right"> Order Id: <b>#@(Model.serviceHeader.Id)</b> </p>
+            </div>
+        </div>
+        
+        
+        <table class="my-4">
+            <tr>
+                <td><b>221, Westney Road South Ajax ON L1S 2C9</b></td>
             </tr>
-
-            <tr class="information">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td>
-                                Sparksuite, Inc.<br>
-                                12345 Sunny Road<br>
-                                Sunnyville, CA 12345
-                            </td>
-
-                            <td>
-                                Acme Corp.<br>
-                                John Doe<br>
-                                john@example.com
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-
-            <tr class="heading">
-                <td>
-                    Payment Method
-                </td>
-
-                <td>
-                    Check #
-                </td>
-            </tr>
-
-            <tr class="details">
-                <td>
-                    Check
-                </td>
-
-                <td>
-                    1000
-                </td>
-            </tr>
-
-            <tr class="heading">
-                <td>
-                    Item
-                </td>
-
-                <td>
-                    Price
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Website design
-                </td>
-
-                <td>
-                    $300.00
-                </td>
-            </tr>
-
-            <tr class="item">
-                <td>
-                    Hosting (3 months)
-                </td>
-
-                <td>
-                    $75.00
-                </td>
-            </tr>
-
-            <tr class="item last">
-                <td>
-                    Domain name (1 year)
-                </td>
-
-                <td>
-                    $10.00
-                </td>
-            </tr>
-
-            <tr class="total">
-                <td></td>
-
-                <td>
-                    Total: $385.00
-                </td>
+            <tr>
+                <td>Telephone: (289) 600-6524</td>
             </tr>
         </table>
+        <table class="table table-bordered table-sm">
+            <tr>
+                <th colspan="2">Vehicle Information</th>
+            </tr>
+            <tr>
+                <th>Year:</th>
+                <td>@Model.serviceHeader.Car.Year</td>
+            </tr>
+            <tr>
+                <th>Make:</th>
+                <td>@Model.serviceHeader.Car.Make</td>
+            </tr>
+            <tr>
+                <th>Model:</th>
+                <td>@Model.serviceHeader.Car.Model</td>
+            </tr>
+            <tr>
+                <th>Plate:</th>
+                <td>@Model.serviceHeader.Car.VIN</td>
+            </tr>
+            <tr>
+                <th>Odometer:</th>
+                <td>@Model.serviceHeader.Car.Miles (miles)</td>
+            </tr>
+        </table>
+
+        <table class="table table-bordered table-sm mt-4">
+            <tr>
+                <th colspan="2">Work Information</th>
+            </tr>
+
+            @foreach (var service in Model.serviceDetails)
+            {
+                <tr>
+                    <td>@service.ServiceName</td>
+                    <td>@(String.Format("${0:0.00}",service.ServicePrice))</td>
+                </tr>
+            }
+
+            
+            <tr>
+                <td>Sub-Total:</td>
+                <th>@(String.Format("${0:0.00}",Model.serviceHeader.TotalPrice))</th>
+            </tr>
+            <tr>
+                <td>Taxes:</td>
+                <th>@(String.Format("${0:0.00}",Model.serviceHeader.Tax))</th>
+            </tr>
+            <tr class="bg-success-soft">
+                <td>Full Price:</td>
+                <th>@(String.Format("${0:0.00}",Model.serviceHeader.FullPrice))</th>
+            </tr>
+
+        </table>
+
+        <p class="mt-5">Tank you for shopping by today. We look forward to seeing you again</p>
+        
     </div>
-
-</body>
-
-
-<form method="post" id="form1" name="form1">
-    <!-- Use This Section to change Printing Properties -->
-
-    <div hidden="hidden" class="entry-content">
-        <p>
-            Url:<br />
-            <input type="text" style="width: 90%;" value="@Url.PageLink()" asp-for="TxtUrl" />
-        </p>
-        <div class="col2">
-            Pdf Page Size:<br />
-            <select asp-for="DdlPageSize" asp-items="Model.PageSizes"></select>
-            <br />
-            <br />
-            Pdf Page Orientation:<br />
-            <input type="text" style="width: 90%;" asp-for="DdlPageOrientation" value="Portrait" />
-            <br />
-        </div>
-        <div class="col2">
-            Web Page Width:<br />
-            <input type="text" style="width: 50px;" value="1024" asp-for="TxtWidth" /> px<br />
-            <br />
-            Web Page Height:<br />
-            <input type="text" style="width: 50px;" value="" asp-for="TxtHeight" /> px<br />
-            (leave empty to auto detect)<br />
-            <br />
-        </div>
+</div>
 
 
-    </div>
-    <p>
-        <input type="submit" name="BtnConvert" value="Create PDF" class="submitForm" />
-    </p>
-</form>
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+<script type="text/javascript">
+    $("#btnprintpdf").on("click",function(){
+        const factura = document.getElementById("invoice");
+        var opt = {
+            margin:       0,
+            filename:     'invoice.pdf'
+        };
+        html2pdf().set(opt).from(factura).save();
+    });
+</script>
 
 @section Scripts
 {
     <partial name="_ValidationScriptsPartial" />
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script type="text/javascript">
-        window.onload = function () {
-            document.forms['form1'].submit();
-        }
-    </script>
-
 }
 
 
