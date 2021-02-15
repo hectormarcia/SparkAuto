@@ -36,6 +36,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-page="/ServiceTypes/Index"> <i class="fa fa-wrench"></i> Service Types</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="/Reports/Index"> <i class="fad fa-chart-pie-alt"></i> Reports</a>
+                            </li>
                         }
                         @if (User.IsInRole(SD.CustomerEndUser) || User.IsInRole(SD.AdminEndUser))
                         {

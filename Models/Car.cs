@@ -27,6 +27,9 @@ namespace SparkAuto.Models
 
         public string Color { get; set; }
 
+        [StringLength(255)]
+        public string Description {get;set;}
+        
         public string UserId { get; set; }
 
         [ForeignKey("UserId")]

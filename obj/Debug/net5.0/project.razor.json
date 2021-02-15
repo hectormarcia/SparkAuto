@@ -15876,6 +15876,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Reports\\Index.cshtml",
+      "TargetPath": "Pages\\Reports\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Index.cshtml",
       "TargetPath": "Pages\\Index.cshtml",
       "FileKind": "mvc"

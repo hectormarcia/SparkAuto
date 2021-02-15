@@ -1572,3 +1572,4 @@ C:\Users\hmarcia\source\repos\DEV\2021\Hema\20201-02-08\obj\Debug\net5.0\SparkAu
 C:\Users\hmarcia\source\repos\DEV\2021\Hema\20201-02-08\obj\Debug\net5.0\SparkAuto.Views.pdb
 C:\Users\hmarcia\source\repos\DEV\2021\Hema\20201-02-08\obj\Debug\net5.0\SparkAuto.csproj.CopyComplete
 C:\Users\hmarcia\source\repos\DEV\2021\Hema\20201-02-08\obj\Debug\net5.0\SparkAuto.genruntimeconfig.cache
+C:\Storage\Develop\Aspnet\SparkAutoShop\obj\Debug\net5.0\Razor\Pages\Reports\Index.cshtml.g.cs
