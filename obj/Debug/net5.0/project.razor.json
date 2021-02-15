@@ -15856,11 +15856,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Invoices\\InvoiceJS.cshtml",
-      "TargetPath": "Pages\\Invoices\\InvoiceJS.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Error.cshtml",
       "TargetPath": "Pages\\Error.cshtml",
       "FileKind": "mvc"

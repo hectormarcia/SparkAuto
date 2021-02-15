@@ -40,6 +40,7 @@
             <div class="col">
                 <p class="m-0 text-right"> @(Model.serviceHeader.DateAdded.ToString("dddd, dd MMMM yyyy")) </p>
                 <p class="m-0 text-right"> Order Id: <b>#@(Model.serviceHeader.Id)</b> </p>
+                <input type="hidden" value="@Model.serviceHeader.Id" id="orderid">
             </div>
         </div>
         
@@ -100,6 +101,10 @@
                 <td>Taxes:</td>
                 <th>@(String.Format("${0:0.00}",Model.serviceHeader.Tax))</th>
             </tr>
+            <tr>
+                <td>Env Charge:</td>
+                <th>@(String.Format("${0:0.00}",2.99))</th>
+            </tr>
             <tr class="bg-success-soft">
                 <td>Full Price:</td>
                 <th>@(String.Format("${0:0.00}",Model.serviceHeader.FullPrice))</th>
@@ -116,15 +121,14 @@
 
 
 
-
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 <script type="text/javascript">
     $("#btnprintpdf").on("click",function(){
         const factura = document.getElementById("invoice");
         var opt = {
-            margin:       0,
-            filename:     'invoice.pdf'
+            margin: 0,
+            filename: 'invoice-' + $("#orderid").val() + ".pdf"
         };
         html2pdf().set(opt).from(factura).save();
     });

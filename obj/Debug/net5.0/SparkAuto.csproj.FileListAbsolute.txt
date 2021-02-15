@@ -1018,7 +1018,6 @@ C:\Storage\Develop\Aspnet\SparkAutoShop\obj\Debug\net5.0\Razor\Pages\Cars\Index.
 C:\Storage\Develop\Aspnet\SparkAutoShop\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
 C:\Storage\Develop\Aspnet\SparkAutoShop\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
 C:\Storage\Develop\Aspnet\SparkAutoShop\obj\Debug\net5.0\Razor\Pages\Invoices\Invoice.cshtml.g.cs
-C:\Storage\Develop\Aspnet\SparkAutoShop\obj\Debug\net5.0\Razor\Pages\Invoices\InvoiceJS.cshtml.g.cs
 C:\Storage\Develop\Aspnet\SparkAutoShop\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
 C:\Storage\Develop\Aspnet\SparkAutoShop\obj\Debug\net5.0\Razor\Pages\Services\Create.cshtml.g.cs
 C:\Storage\Develop\Aspnet\SparkAutoShop\obj\Debug\net5.0\Razor\Pages\Services\Details.cshtml.g.cs
