@@ -6,26 +6,18 @@ namespace SparkAuto.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<bool>(
+            migrationBuilder.AddColumn<bool>(
                 name: "SmsAlert",
                 table: "AspNetUsers",
                 type: "bit",
-                nullable: true,
-                oldClrType: typeof(int),
-                oldType: "int",
-                oldNullable: true);
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<int>(
+            migrationBuilder.DropColumn(
                 name: "SmsAlert",
-                table: "AspNetUsers",
-                type: "int",
-                nullable: true,
-                oldClrType: typeof(bool),
-                oldType: "bit",
-                oldNullable: true);
+                table: "AspNetUsers");
         }
     }
 }

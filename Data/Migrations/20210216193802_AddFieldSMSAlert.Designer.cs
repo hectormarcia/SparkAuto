@@ -10,7 +10,7 @@ using SparkAuto.Data;
 namespace SparkAuto.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210216010507_AddFieldSMSAlert")]
+    [Migration("20210216193802_AddFieldSMSAlert")]
     partial class AddFieldSMSAlert
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

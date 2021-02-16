@@ -139,8 +139,8 @@ namespace SparkAuto.Areas.Identity.Pages.Account
                     else
                     {
                         await _userManager.AddToRoleAsync(user, SD.CustomerEndUser);
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        //await _signInManager.SignInAsync(user, isPersistent: false);
+                        return RedirectToPage("/Users/Index");
                     }
 
 
