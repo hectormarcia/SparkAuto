@@ -27,6 +27,13 @@ using SparkAuto.Data;
 #line hidden
 #nullable disable
 #nullable restore
+#line 4 "C:\Storage\Develop\Aspnet\SparkAutoShop\Pages\_ViewImports.cshtml"
+using SparkAuto.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Storage\Develop\Aspnet\SparkAutoShop\Pages\Shared\_LoginPartial.cshtml"
 using Microsoft.AspNetCore.Identity;
 
@@ -34,7 +41,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"47594cf0703d93b064449c12abd5114c3362a94f", @"/Pages/Shared/_LoginPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"afca1bd873e7af2f0f833de2f5e067394f2f6d32", @"/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c4d69de3f1e1300da7fddf4fe637537dd02ad215", @"/Pages/_ViewImports.cshtml")]
     public class Pages_Shared__LoginPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("nav-link"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -83,7 +90,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("        <li class=\"nav-item mr-2\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47594cf0703d93b064449c12abd5114c3362a94f7123", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47594cf0703d93b064449c12abd5114c3362a94f7294", async() => {
                 WriteLiteral("Hello ");
 #nullable restore
 #line 9 "C:\Storage\Develop\Aspnet\SparkAutoShop\Pages\Shared\_LoginPartial.cshtml"
@@ -112,7 +119,7 @@ using Microsoft.AspNetCore.Identity;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n        </li>\r\n");
             WriteLiteral("        <li class=\"nav-item mr-2\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47594cf0703d93b064449c12abd5114c3362a94f9061", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47594cf0703d93b064449c12abd5114c3362a94f9232", async() => {
                 WriteLiteral("<i class=\"far fa-user-edit mr-2\"></i><span");
                 BeginWriteAttribute("class", " class=\"", 573, "\"", 581, 0);
                 EndWriteAttribute();
@@ -135,7 +142,7 @@ using Microsoft.AspNetCore.Identity;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n        </li>\r\n");
             WriteLiteral("        <li class=\"nav-item\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47594cf0703d93b064449c12abd5114c3362a94f10798", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47594cf0703d93b064449c12abd5114c3362a94f10969", async() => {
                 WriteLiteral("\r\n                <button type=\"submit\" class=\"btn  btn-transparent-light\"><i class=\"fas fa-sign-in mr-2\"></i> <span");
                 BeginWriteAttribute("class", " class=\"", 923, "\"", 931, 0);
                 EndWriteAttribute();
@@ -186,7 +193,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("        <li class=\"nav-item\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47594cf0703d93b064449c12abd5114c3362a94f14382", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47594cf0703d93b064449c12abd5114c3362a94f14553", async() => {
                 WriteLiteral("\r\n                <i class=\"fal fa-sign-in mr-2\"></i> <span>Login</span>\r\n            ");
             }
             );

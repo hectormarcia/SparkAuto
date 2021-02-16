@@ -35,7 +35,7 @@
     <div class="invoice-container">
         <div class="row">
             <div class="col">
-                <img src="https://www.sparksuite.com/images/logo.png" style="width:100%; max-width:300px;">
+                <img src="~/images/logo.webp" style="width:100%; max-width:300px;">
             </div>
             <div class="col">
                 <p class="m-0 text-right"> @(Model.serviceHeader.DateAdded.ToString("dddd, dd MMMM yyyy")) </p>
@@ -43,7 +43,6 @@
                 <input type="hidden" value="@Model.serviceHeader.Id" id="orderid">
             </div>
         </div>
-        
         
         <table class="my-4">
             <tr>
@@ -128,6 +127,9 @@
         const factura = document.getElementById("invoice");
         var opt = {
             margin: 0,
+            image: { type: 'jpeg', quality: 1 },
+            html2canvas:  { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
             filename: 'invoice-' + $("#orderid").val() + ".pdf"
         };
         html2pdf().set(opt).from(factura).save();

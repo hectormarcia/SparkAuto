@@ -80,6 +80,17 @@
                     <span asp-validation-for="ApplicationUser.PostalCode" class="text-danger"></span>
                 </div>
                 <div class="form-group row">
+                    <div class="col-12 col-md-2">
+                        <label></label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="custom-control custom-checkbox">
+                            <input class="custom-control-input" id="checkalert" type="checkbox" asp-for="ApplicationUser.SmsAlert" checked="@Model.ApplicationUser.SmsAlert">
+                            <label class="custom-control-label" for="checkalert">SMS Alerts</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
                     <div class="col-12 offset-0 offset-md-2">
                         <partial name="_EditAndBackToListButton" />
                     </div>

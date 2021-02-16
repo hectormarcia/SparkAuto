@@ -75,7 +75,6 @@
                     </tr>
                     @foreach (var item in Model.UsersListVM.ApplicationUserList)
                     {
-
                         <tr role="row" >
                             <td class="fit">
                                 @Html.DisplayFor(m => item.Name)
@@ -88,7 +87,7 @@
                             </td>
                             <td class="fit">
                                 <div class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" id="@(item.Id)SMSCheck" type="checkbox" checked="true">
+                                    <input class="custom-control-input" id="@(item.Id)SMSCheck" type="checkbox" name="status" checked='@item.SmsAlert' onclick="return false;">
                                     <label class="custom-control-label" for="@(item.Id)SMSCheck">Send SMS</label>
                                 </div>
                             </td>

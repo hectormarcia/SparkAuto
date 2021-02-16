@@ -58,6 +58,7 @@ namespace SparkAuto.Pages.Users
             UserFromDb.Address = ApplicationUser.Address;
             UserFromDb.City = ApplicationUser.City;
             UserFromDb.PostalCode = ApplicationUser.PostalCode;
+            UserFromDb.SmsAlert = ApplicationUser.SmsAlert;
 
             await _db.SaveChangesAsync();
 

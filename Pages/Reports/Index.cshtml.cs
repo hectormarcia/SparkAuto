@@ -42,6 +42,16 @@ namespace SparkAuto.Pages.Reports{
             ReportsVM.totaltoday = _db.ServiceHeader.Where(x => x.DateAdded.Date == DateTime.Now.Date).Sum(x => x.FullPrice);
             ReportsVM.totalmonth = _db.ServiceHeader.Where(x => x.DateAdded.Month == DateTime.Now.Month).Sum(x => x.FullPrice);
 
+            //REPORT MOST SOLD SERVICES
+            var result3 = _db.ServiceDetails.GroupBy(x => x.ServiceTypeId).Select(g => new {key = g.Key, count = g.Count()}).OrderBy(x => x.count).ToList();
+            List<KeyValuePair<int,ServiceDetails>> lista = new List<KeyValuePair<int,ServiceDetails>>();
+            foreach(var item in result3){
+                lista.Add(new KeyValuePair<int,ServiceDetails>(item.count,_db.ServiceDetails.Find(item.key)));
+            }
+
+            
+
+
 
 
             return Page();
