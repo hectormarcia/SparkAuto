@@ -59,7 +59,7 @@ namespace SparkAuto.Pages.Services
             foreach (var item in CarServiceVM.ServiceShoppingCart)
             {
 
-                CarServiceVM.ServiceHeader.TotalPrice += item.ServiceType.Price;
+                CarServiceVM.ServiceHeader.TotalPrice += item.ServiceType.Price * item.Quantity;
                 CarServiceVM.ServiceHeader.TotalPrice = Math.Round(CarServiceVM.ServiceHeader.TotalPrice, 2);
                 CarServiceVM.ServiceHeader.Tax = CarServiceVM.ServiceHeader.TotalPrice * .13;
                 CarServiceVM.ServiceHeader.Tax = Math.Round(CarServiceVM.ServiceHeader.Tax, 2);
@@ -81,7 +81,7 @@ namespace SparkAuto.Pages.Services
                 CarServiceVM.ServiceShoppingCart = _db.ServiceShoppingCart.Include(c => c.ServiceType).Where(c => c.CarId == CarServiceVM.Car.Id).ToList();
                 foreach (var item in CarServiceVM.ServiceShoppingCart)
                 {
-                    CarServiceVM.ServiceHeader.TotalPrice += item.ServiceType.Price;
+                    CarServiceVM.ServiceHeader.TotalPrice += item.ServiceType.Price * item.Quantity;
                     CarServiceVM.ServiceHeader.TotalPrice = Math.Round(CarServiceVM.ServiceHeader.TotalPrice, 2);
                     CarServiceVM.ServiceHeader.Tax = CarServiceVM.ServiceHeader.TotalPrice * .13;
                     CarServiceVM.ServiceHeader.Tax = Math.Round(CarServiceVM.ServiceHeader.Tax, 2);
@@ -102,7 +102,8 @@ namespace SparkAuto.Pages.Services
                         ServiceHeaderId = CarServiceVM.ServiceHeader.Id,
                         ServiceName = detail.ServiceType.Name,
                         ServicePrice = detail.ServiceType.Price,
-                        ServiceTypeId = detail.ServiceTypeId
+                        ServiceTypeId = detail.ServiceTypeId,
+                        Quantity = detail.Quantity
                     };
                     _db.ServiceDetails.Add(serviceDetails);
 
@@ -127,7 +128,8 @@ namespace SparkAuto.Pages.Services
             ServiceShoppingCart objServiceCart = new ServiceShoppingCart()
             {
                 CarId = CarServiceVM.Car.Id,
-                ServiceTypeId = CarServiceVM.ServiceDetails.ServiceTypeId
+                ServiceTypeId = CarServiceVM.ServiceDetails.ServiceTypeId,
+                Quantity = CarServiceVM.ServiceDetails.Quantity
             };
 
             _db.ServiceShoppingCart.Add(objServiceCart);

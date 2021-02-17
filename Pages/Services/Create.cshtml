@@ -74,28 +74,37 @@
 
                     <div class="">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-7">
                                 <h4 class="text-primary">Add Service</h4>
+                            </div>
+                            <div class="col-3">
+                                <label for="">Cant.</label>
                             </div>
                         </div>
                         <div class="row">
                             @if (Model.CarServiceVM.ServiceTypesList.Count == 0)
                             {
-                        <p>
-                            All services have been added.
-                        </p> }
+                                <p>All services have been added.</p> 
+                            }
                             else
                             {
-                        <div class="col-10 col-md-7">
-                            <select asp-for="CarServiceVM.ServiceDetails.ServiceTypeId"
-                                    asp-items="@(new SelectList(Model.CarServiceVM.ServiceTypesList, "Id", "Name"))"
-                                    class="form-control"></select>
-                        </div>
-                        <div class="col-2 col-md-1">
-                            <button type="submit" asp-page-handler="AddToCart" class="btn btn-primary btn-icon">
-                                <i class="fal fa-plus"></i>
-                            </button>
-                        </div>}
+                                <div class="col-10 col-md-7">
+                                    <select asp-for="CarServiceVM.ServiceDetails.ServiceTypeId"
+                                            asp-items="@(new SelectList(Model.CarServiceVM.ServiceTypesList, "Id", "Name"))"
+                                            class="form-control">
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="number" asp-for="CarServiceVM.ServiceDetails.Quantity" class="form-control" min="1" max="100" value="1">
+                                </div>
+
+
+                                <div class="col-2 col-md-1">
+                                    <button type="submit" asp-page-handler="AddToCart" class="btn btn-primary btn-icon">
+                                        <i class="fal fa-plus"></i>
+                                    </button>
+                                </div>
+                            }
                         </div>
                     </div>
 
@@ -119,6 +128,7 @@
                                                 @Html.DisplayNameFor(m => Model.CarServiceVM.ServiceTypesList.FirstOrDefault().Price)
                                             </th>
                                             <th class="fit td-center">Cant</th>
+                                            <th class="fit td-center">Total</th>
                                             <th class="fit td-center">Actions</th>
                                         </tr>
 
@@ -132,7 +142,10 @@
                                                     @String.Format("${0:0.00}",item.ServiceType.Price)
                                                 </td>
                                                 <td class="fit">
-                                                    <input type="number" class="form-control" min="1" max="100" value="1">
+                                                    @Html.DisplayFor(m => item.Quantity)
+                                                </td>
+                                                <td class="fit">
+                                                    @String.Format("${0:0.00}",item.Quantity * item.ServiceType.Price)
                                                 </td>
                                                 <td class="fit td-center">
                                                     <button type="submit" asp-page-handler="RemoveFromCart" asp-route-serviceTypeId="@item.ServiceTypeId" class="btn btn-danger btn-sm">
@@ -142,34 +155,34 @@
                                             </tr>
                                         }
                                         <tr style="background-color: none">
-                                            <td colspan="1" class="fit">
+                                            <td colspan="3" class="fit">
                                                 <h6 class="text-success">Sub-Total:</h6>
                                             </td>
-                                            <td colspan="3" class="fit">
+                                            <td colspan="2" class="fit">
                                                 <h6 class="text-success">@(String.Format("${0:0.00}",Model.CarServiceVM.ServiceHeader.TotalPrice))</h6>
                                             </td>
                                         </tr>
                                         <tr style="background-color: none">
-                                            <td colspan="1" class="fit">
+                                            <td colspan="3" class="fit">
                                                 <h6 class="text-success">Tax:</h6>
                                             </td>
-                                            <td colspan="3" class="fit">
+                                            <td colspan="2" class="fit">
                                                 <h6 class="text-success">@(String.Format("${0:0.00}",Model.CarServiceVM.ServiceHeader.Tax))</h6>
                                             </td>
                                         </tr>
                                         <tr style="background-color: none">
-                                            <td colspan="1" class="fit">
+                                            <td colspan="3" class="fit">
                                                 <h6 class="text-success">Env Charge:</h6>
                                             </td>
-                                            <td colspan="3" class="fit">
+                                            <td colspan="2" class="fit">
                                                 <h6 class="text-success">@(String.Format("${0:0.00}",2.99))</h6>
                                             </td>
                                         </tr>
                                         <tr style="background-color:#e2fee2">
-                                            <td colspan="1" class="fit">
+                                            <td colspan="3" class="fit">
                                                 <h6 class="text-success">Total Price:</h6>
                                             </td>
-                                            <td colspan="3" class="fit">
+                                            <td colspan="2" class="fit">
                                                 <h6 class="text-success">@(String.Format("${0:0.00}",Model.CarServiceVM.ServiceHeader.FullPrice))</h6>
                                             </td>
                                         </tr>

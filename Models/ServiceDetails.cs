@@ -23,5 +23,9 @@ namespace SparkAuto.Models
         [Column("ServicePrice")]
         public double ServicePrice { get; set; }
         public string ServiceName { get; set; }
+
+        [Display(Name="Quantity")]
+        [Range(1,1000)]
+        public int Quantity {get;set;}
     }
 }

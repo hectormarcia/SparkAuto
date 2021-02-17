@@ -64,42 +64,48 @@
                         <th class="text-secondary">
                             @Html.DisplayNameFor(m => Model.serviceDetails[0].ServicePrice)
                         </th>
+                        <th class="text-secondary">
+                            Service Total
+                        </th>
                     </tr>
                     @foreach (var item in Model.serviceDetails)
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(m => item.ServiceName)
+                                @Html.DisplayFor(m => item.ServiceName) x @item.Quantity
                             </td>
                             <td>
-                                @(String.Format("${0:0.00}",item.ServicePrice))
+                                @(String.Format("${0:0.00}",item.ServicePrice ))
+                            </td>
+                            <td>
+                                @(String.Format("${0:0.00}",item.ServicePrice * item.Quantity ))
                             </td>
 
                         </tr>
                     }
                     <tr>
-                        <th colspan="1">Total Price:</th>
-                        <td colspan="2">
+                        <th colspan="2">Total Price:</th>
+                        <td colspan="1">
                             <h6 class="text-success">@(String.Format("${0:0.00}",Model.serviceHeader.TotalPrice))</h6>
                         </td>
                     </tr>
                     <tr>
-                        <th colspan="1">Taxes:</th>
-                        <td colspan="2">
+                        <th colspan="2">Taxes:</th>
+                        <td colspan="1">
                             <h6 class="text-success">@(String.Format("${0:0.00}",Model.serviceHeader.Tax))</h6>
                         </td>
                     </tr>
                      <tr>
-                        <th colspan="1">Env Charge:</th>
-                        <td colspan="2">
+                        <th colspan="2">Env Charge:</th>
+                        <td colspan="1">
                             <h6 class="text-success">@(String.Format("${0:0.00}",2.99))</h6>
                         </td>
                     </tr>
                     <tr class="bg-success-soft">
-                        <td colspan="1">
+                        <td colspan="2">
                             <h6 class="text-success">Full Price :</h6>
                         </td>
-                        <td colspan="2">
+                        <td colspan="1">
                             <h6 class="text-success">@(String.Format("${0:0.00}",Model.serviceHeader.FullPrice))</h6>
                         </td>
                     </tr>

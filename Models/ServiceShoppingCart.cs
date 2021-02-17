@@ -12,6 +12,8 @@ namespace SparkAuto.Models
         public int CarId { get; set; }
         public int ServiceTypeId { get; set; }
 
+        public int Quantity {get;set;}
+
         [ForeignKey("CarId")]
         public virtual Car Car { get; set; }
 

@@ -80,33 +80,41 @@
 
         <table class="table table-bordered table-sm mt-4">
             <tr>
-                <th colspan="2">Work Information</th>
+                <th colspan="4">Work Information</th>
+            </tr>
+            <tr>
+                <th>Service Type</th>
+                <th>Quantity</th>
+                <th>Service Price</th>
+                <th>Service Total</th>
             </tr>
 
             @foreach (var service in Model.serviceDetails)
             {
                 <tr>
-                    <td>@service.ServiceName</td>
+                    <td>@service.ServiceName </td>
+                    <td>@service.Quantity</td>
                     <td>@(String.Format("${0:0.00}",service.ServicePrice))</td>
+                    <td>@(String.Format("${0:0.00}",service.ServicePrice * service.Quantity))</td>
                 </tr>
             }
 
             
             <tr>
-                <td>Sub-Total:</td>
-                <th>@(String.Format("${0:0.00}",Model.serviceHeader.TotalPrice))</th>
+                <td colspan="3">Sub-Total:</td>
+                <th colspan="1">@(String.Format("${0:0.00}",Model.serviceHeader.TotalPrice))</th>
             </tr>
             <tr>
-                <td>Taxes:</td>
-                <th>@(String.Format("${0:0.00}",Model.serviceHeader.Tax))</th>
+                <td colspan="3">Taxes:</td>
+                <th colspan="1">@(String.Format("${0:0.00}",Model.serviceHeader.Tax))</th>
             </tr>
             <tr>
-                <td>Env Charge:</td>
-                <th>@(String.Format("${0:0.00}",2.99))</th>
+                <td colspan="3">Env Charge:</td>
+                <th colspan="1">@(String.Format("${0:0.00}",2.99))</th>
             </tr>
             <tr class="bg-success-soft">
-                <td>Full Price:</td>
-                <th>@(String.Format("${0:0.00}",Model.serviceHeader.FullPrice))</th>
+                <td colspan="3">Full Price:</td>
+                <th colspan="1">@(String.Format("${0:0.00}",Model.serviceHeader.FullPrice))</th>
             </tr>
 
         </table>
