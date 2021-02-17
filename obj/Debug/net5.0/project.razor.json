@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\SparkAuto.csproj",
+  "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\SparkAuto.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15666,358 +15666,358 @@
   "RootNamespace": "SparkAuto",
   "Documents": [
     {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Cars\\Edit.cshtml",
-      "TargetPath": "Pages\\Cars\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Services\\Details.cshtml",
-      "TargetPath": "Pages\\Services\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Users\\Index.cshtml",
-      "TargetPath": "Pages\\Users\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Shared\\_DetailsAndBackToListButton.cshtml",
-      "TargetPath": "Pages\\Shared\\_DetailsAndBackToListButton.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\ServiceTypes\\Create.cshtml",
-      "TargetPath": "Pages\\ServiceTypes\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Users\\Delete.cshtml",
-      "TargetPath": "Pages\\Users\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Shared\\_DeleteAndBackToListButton.cshtml",
-      "TargetPath": "Pages\\Shared\\_DeleteAndBackToListButton.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\ServiceTypes\\Edit.cshtml",
-      "TargetPath": "Pages\\ServiceTypes\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Shared\\_Layout.cshtml",
-      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Cars\\Create.cshtml",
-      "TargetPath": "Pages\\Cars\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Cars\\Index.cshtml",
-      "TargetPath": "Pages\\Cars\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Shared\\_LoginPartial.cshtml",
-      "TargetPath": "Pages\\Shared\\_LoginPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Shared\\_EditAndBackToListButton.cshtml",
-      "TargetPath": "Pages\\Shared\\_EditAndBackToListButton.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Cars\\Delete.cshtml",
-      "TargetPath": "Pages\\Cars\\Delete.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Error.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Reports\\Index.cshtml",
-      "TargetPath": "Pages\\Reports\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Index.cshtml",
-      "TargetPath": "Pages\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\ServiceTypes\\Index.cshtml",
-      "TargetPath": "Pages\\ServiceTypes\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Services\\Create.cshtml",
-      "TargetPath": "Pages\\Services\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Shared\\_StatusMessage.cshtml",
-      "TargetPath": "Pages\\Shared\\_StatusMessage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\ServiceTypes\\Details.cshtml",
-      "TargetPath": "Pages\\ServiceTypes\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\VerifyEmail.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\VerifyEmail.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Privacy.cshtml",
-      "TargetPath": "Pages\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Shared\\_CreateAndBackToListButton.cshtml",
-      "TargetPath": "Pages\\Shared\\_CreateAndBackToListButton.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Services\\History.cshtml",
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Services\\History.cshtml",
       "TargetPath": "Pages\\Services\\History.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Users\\Edit.cshtml",
-      "TargetPath": "Pages\\Users\\Edit.cshtml",
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\Invoices\\Invoice.cshtml",
-      "TargetPath": "Pages\\Invoices\\Invoice.cshtml",
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Services\\Details.cshtml",
+      "TargetPath": "Pages\\Services\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\PersonalData.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
-      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Shared\\_DeleteAndBackToListButton.cshtml",
+      "TargetPath": "Pages\\Shared\\_DeleteAndBackToListButton.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\RegisterConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Cars\\Index.cshtml",
+      "TargetPath": "Pages\\Cars\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Email.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\TwoFactorAuthentication.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Shared\\_DetailsAndBackToListButton.cshtml",
+      "TargetPath": "Pages\\Shared\\_DetailsAndBackToListButton.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ExternalLogins.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\_StatusMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\ServiceTypes\\Create.cshtml",
+      "TargetPath": "Pages\\ServiceTypes\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Invoices\\Invoice.cshtml",
+      "TargetPath": "Pages\\Invoices\\Invoice.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Reports\\Index.cshtml",
+      "TargetPath": "Pages\\Reports\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ManageNav.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAutoShop\\Pages\\ServiceTypes\\Delete.cshtml",
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\ServiceTypes\\Edit.cshtml",
+      "TargetPath": "Pages\\ServiceTypes\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\VerifyEmail.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\VerifyEmail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Shared\\_EditAndBackToListButton.cshtml",
+      "TargetPath": "Pages\\Shared\\_EditAndBackToListButton.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\ServiceTypes\\Details.cshtml",
+      "TargetPath": "Pages\\ServiceTypes\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Error.cshtml",
+      "TargetPath": "Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Shared\\_StatusMessage.cshtml",
+      "TargetPath": "Pages\\Shared\\_StatusMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Lockout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DeletePersonalData.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Users\\Delete.cshtml",
+      "TargetPath": "Pages\\Users\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ChangePassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\EnableAuthenticator.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\SetPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Cars\\Edit.cshtml",
+      "TargetPath": "Pages\\Cars\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_StatusMessage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Index.cshtml",
+      "TargetPath": "Pages\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\ServiceTypes\\Delete.cshtml",
       "TargetPath": "Pages\\ServiceTypes\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ResetAuthenticator.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Privacy.cshtml",
+      "TargetPath": "Pages\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Users\\Edit.cshtml",
+      "TargetPath": "Pages\\Users\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\_ViewImports.cshtml",
+      "TargetPath": "Pages\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\AccessDenied.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Error.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Services\\Create.cshtml",
+      "TargetPath": "Pages\\Services\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Shared\\_CreateAndBackToListButton.cshtml",
+      "TargetPath": "Pages\\Shared\\_CreateAndBackToListButton.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmail.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWithRecoveryCode.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Shared\\_Layout.cshtml",
+      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Cars\\Delete.cshtml",
+      "TargetPath": "Pages\\Cars\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\ServiceTypes\\Index.cshtml",
+      "TargetPath": "Pages\\ServiceTypes\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Shared\\_LoginPartial.cshtml",
+      "TargetPath": "Pages\\Shared\\_LoginPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ExternalLogin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Users\\Index.cshtml",
+      "TargetPath": "Pages\\Users\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Cars\\Create.cshtml",
+      "TargetPath": "Pages\\Cars\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\DownloadPersonalData.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
+      "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml",
       "FileKind": "mvc"
     }
   ],

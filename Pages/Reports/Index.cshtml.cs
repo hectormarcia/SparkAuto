@@ -1,15 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using SparkAuto.Data;
-using SparkAuto.Models;
 using SparkAuto.Models.ViewModel;
-using SparkAuto.Utility;
 
 namespace SparkAuto.Pages.Reports{
 
@@ -25,7 +20,8 @@ namespace SparkAuto.Pages.Reports{
 
         public ReportsViewModel ReportsVM {get;set;}
 
-        public IActionResult OnGet()
+        [HttpGet]
+        public IActionResult OnGet(int graphtype)
         {
             ReportsVM = new ReportsViewModel();
             
@@ -43,19 +39,52 @@ namespace SparkAuto.Pages.Reports{
             ReportsVM.totalmonth = _db.ServiceHeader.Where(x => x.DateAdded.Month == DateTime.Now.Month).Sum(x => x.FullPrice);
 
             //REPORT MOST SOLD SERVICES
-            var result3 = _db.ServiceDetails.GroupBy(x => x.ServiceTypeId).Select(g => new {key = g.Key, count = g.Count()}).OrderBy(x => x.count).ToList();
-            List<KeyValuePair<int,ServiceDetails>> lista = new List<KeyValuePair<int,ServiceDetails>>();
-            foreach(var item in result3){
-                lista.Add(new KeyValuePair<int,ServiceDetails>(item.count,_db.ServiceDetails.Find(item.key)));
+            switch(graphtype){
+                case 1:
+                    ServicesGraph();
+                    break;
+                case 2:
+                    DailyEarnings();
+                    break;
+                default:
+                    ServicesGraph();
+                    break;
             }
-
-            
-
-
-
 
             return Page();
         }
+
+        public void ServicesGraph(){
+            var result = _db.ServiceDetails.GroupBy(x => x.ServiceTypeId).Select(g => new {key = g.Key, count = g.Count()}).ToList();
+            foreach (var item in result){
+                ReportsVM.graphlabels += _db.ServiceType.Find(item.key).Name + ",";
+                ReportsVM.graphvalues += item.count + ",";
+            }
+
+            ReportsVM.graphlabels = ReportsVM.graphlabels.Substring(0, ReportsVM.graphlabels.Length - 1);
+            ReportsVM.graphvalues = ReportsVM.graphvalues.Substring(0, ReportsVM.graphvalues.Length - 1);
+            ReportsVM.type = ReportsViewModel.GrapType.doughnut;
+            ReportsVM.axislabel = "Number of sales";
+        }
+
+
+        public void DailyEarnings(){
+            ReportsVM.graphlabels = "";
+            ReportsVM.graphvalues = "";
+            var result = _db.ServiceHeader.GroupBy(x => x.DateAdded.Day).Select(x => new {headerid = x.Key, suma = x.Sum(y => y.FullPrice)}).OrderBy(x => x.headerid);
+            
+            foreach(var item in result){
+                ReportsVM.graphlabels += "Day " + item.headerid +  ",";
+                ReportsVM.graphvalues += item.suma + ",";
+            }
+            
+            ReportsVM.graphlabels = ReportsVM.graphlabels.Substring(0, ReportsVM.graphlabels.Length - 1);
+            ReportsVM.graphvalues = ReportsVM.graphvalues.Substring(0, ReportsVM.graphvalues.Length - 1);
+
+            ReportsVM.type = ReportsViewModel.GrapType.bar;
+            ReportsVM.axislabel = "Sales of month";
+        }
+
 
 
     }
