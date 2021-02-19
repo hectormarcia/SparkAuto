@@ -30,10 +30,26 @@ namespace SparkAuto.Pages.Users
 
         public async Task<IActionResult> OnGet(int productPage=1, string searchPlate=null, string searchEmail=null, string searchName=null, string searchPhone=null)
         {
+            var listado = await (from user in _db.Users
+                                 join userRoles in _db.UserRoles on user.Id equals userRoles.UserId
+                                 join role in _db.Roles on userRoles.RoleId equals role.Id
+                                 select new { UserId = user.Id, UserName = user.UserName, RoleId = role.Id, RoleName = role.Name })
+                                 .Where(r=> r.RoleName=="Customer")
+                                 .ToListAsync();
+
+            List<ApplicationUser> customers = new List<ApplicationUser>();
+            foreach(var us in listado){
+                customers.Add(_db.ApplicationUser.Find(us.UserId));
+            }
+
+
             UsersListVM = new UsersListViewModel()
             {
-                ApplicationUserList = await _db.ApplicationUser.ToListAsync()
+                ApplicationUserList = customers
             };
+
+            
+
 
             StringBuilder param = new StringBuilder();
             param.Append("/Users?productPage=:");

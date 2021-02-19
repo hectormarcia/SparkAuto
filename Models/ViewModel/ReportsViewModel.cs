@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace SparkAuto.Models.ViewModel{
 
@@ -20,6 +21,9 @@ namespace SparkAuto.Models.ViewModel{
         public string axislabel {get;set;}
         
         public GrapType type {get;set;}
+
+
+        public List<ServiceHeader> facturas {get;set;}
 
     }
 

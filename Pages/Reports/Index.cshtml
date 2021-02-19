@@ -1,9 +1,12 @@
 @page
 @model SparkAuto.Pages.Reports.IndexModel
+@using SparkAuto.Models.ViewModel
 @{ 
     ViewData["Title"] = "Reports";
-    Layout = "~/Pages/Shared/_Layout.cshtml"; 
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
 <div class="container mt-5">
     <div class="row">
@@ -73,9 +76,9 @@
                 <div class="card-header bg-white">
                     <form action="" method="get" class="row">
                         <div class="col-6 offset-5">
-                            <select name="graphtype" class="form-control form-control-solid">
+                            <select asp-for="@Model.search.generalgraph" class="form-control form-control-solid">
                                 <option value="1">Services Graph</option>
-                                <option value="2" selected>Daily Earnings</option>
+                                <option value="2">Daily Earnings</option>
                             </select>
                         </div>
                         <div class="col">
@@ -84,11 +87,110 @@
                     </form>
                 </div>
                 <div class="card-body mt-4">
-                    <canvas id="myChart" width="400" height="200"></canvas>
+                    <canvas id="Canvas1" width="400" height="200"></canvas>
                 </div>
             </div>
         </div>
 
+    </div>
+
+    <!--TABLA DE VEHICULOS-->
+    <div class="row mt-5">
+        <div class="col-12">
+
+            <div class="card">
+                <div class="card-header">
+                    <form action="" method="GET">
+                        <div class="row">
+                            <div class="col-2 align-self-end">
+                                <div class="form-group m-0">
+                                    <input type="text" class="form-control form-control-solid" placeholder="Plate Number" asp-for="search.plate">
+                                </div>
+                            </div>
+                            <div class="col-2 align-self-end">
+                                <div class="form-group m-0">
+                                    <input type="text" class="form-control form-control-solid" placeholder="Model" asp-for="search.model">
+                                </div>
+                            </div>
+                            <div class="col-3 align-self-end">
+                                <div class="form-group m-0">
+                                    <input type="text" class="form-control form-control-solid" placeholder="Client Name" asp-for="search.username">
+                                </div>
+                            </div>
+                            <div class="col-2 align-self-end">
+                                <input type="date" class="form-control form-control-solid" asp-for="search.initdate">
+                            </div>
+                            <div class="col-2 align-self-end">
+                                <input type="date" class="form-control form-control-solid" asp-for="search.enddate">
+                            </div>
+                            <div class="col-1 align-self-center">
+                                <button type="submit" class="btn btn-icon btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-body">
+                    <p class="font-weight-bold">Showing @Model.ReportsVM.facturas.Count records</p>
+                    <table class="table table-bordered table-sm table-hover">
+                        @{double suma = 0;}
+                        <tr>
+                            <th>Invoice Id</th>
+                            <th>Client</th>
+                            <th>Service Date</th>
+                            <th>Car Plate</th>
+                            <th>Car Model</th>
+                            <th>Car Make</th>
+                            <th>Full Price</th>
+                            <th class="td-center fit">View Graph</th>
+                        </tr>
+                        @foreach (var item in @Model.ReportsVM.facturas)
+                        {
+                            suma += item.FullPrice;
+
+                            <tr>
+                                <td># @(item.Id)</td>
+                                <td>@item.Car.ApplicationUser.UserName</td>
+                                <td>@item.DateAdded.ToString("dd/MM/yyyy")</td>
+                                <td>@item.Car.VIN</td>
+                                <td>@item.Car.Model</td>
+                                <td>@item.Car.Make</td>
+                                <td>@item.FullPrice</td>
+                                <td class="td-center fit">
+                                    <form action="" method="GET">
+                                        <input type="hidden" value='@ViewData["generalgraph"]' asp-for="@Model.search.generalgraph">
+                                        <input type="hidden" value='@ViewData["plate"]' asp-for="@Model.search.plate">
+                                        <input type="hidden" value='@ViewData["model"]' asp-for="@Model.search.model">
+                                        <input type="hidden" value='@ViewData["username"]' asp-for="@Model.search.username">
+                                        <input type="hidden" value='@ViewData["initdate"]' asp-for="@Model.search.initdate">
+                                        <input type="hidden" value='@ViewData["enddate"]' asp-for="@Model.search.enddate">
+                                        <input type="hidden" asp-for="@Model.search.invoicegraph" value="@item.Id">
+                                        <button type="submit" class="btn btn-xs btn-icon btn-primary"><i class="fa fa-analytics"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <th colspan="6" class="bg-primary-soft">Total Full Prices</td>
+                            <th class="bg-primary-soft">@(String.Format("${0:0.00}",suma))</td>
+                        </tr>
+                    </table>
+
+                    <div class="row mt-5">
+                        <div class="col-4 offset-1">
+                            <div class="p-2 border rounded-lg">
+                                <canvas id="Canvas2" width="100" height="100"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2 border rounded-lg">
+                                <canvas id="Canvas3" width="300" height="150"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>
 
@@ -101,55 +203,54 @@
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
-<script>
-    var ctx = document.getElementById("myChart");
-    var dblabels = document.getElementById("db_labels").value.toString().split(",");
-    var dbvalues = document.getElementById("db_values").value.toString().split(",");
-    var axislabel = document.getElementById("db_axislabel").value.toString().split(",");
-    var graphtype = document.getElementById("db_graphtype").value.toString().split(",");
+@if(ViewData["invoicegraph"] != null){
+
+    try{
+        int invoiceId = (int) ViewData["invoicegraph"];
+        ServiceHeader serviceHeader = Model._db.ServiceHeader.Find(invoiceId);
+        List<ServiceHeader> facturasAuto = Model._db.ServiceHeader.Where(x => x.CarId == serviceHeader.CarId).ToList();
+        List<ServiceType> serviciosExistentes = Model._db.ServiceType.ToList();
+        List<ServiceDetails> serviciosComprados = Model._db.ServiceDetails.Where(x => x.ServiceHeaderId == invoiceId).ToList();
+    
 
 
-
-    var myChart = new Chart(ctx, {
-        type: graphtype,
-        data: {
-            labels: dblabels,
-            datasets: [{
-                label: axislabel,
-                data: dbvalues,
-                backgroundColor: chartbgcolors(dbvalues.length)
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    display: true,
-                    ticks: {
-                        suggestedMin: 0,
-                        beginAtZero: true
-                    }
-                }]
-            },
-            legend: {
-                display: true,
-                labels: {
-                    position: 'top'
-                }
-            }
+        //LABELS
+        string labels1 = "";
+        foreach(var ser in serviciosExistentes){
+            labels1 += ser.Name + ",";
         }
-    });
+        labels1 = labels1.Substring(0,labels1.Length-1);
 
-    function chartbgcolors(n){
-        var bg = [];
-        for(var i = 0; i < n; i++){
-            var r = Math.floor((Math.random()*255)+1);
-            var g = Math.floor((Math.random()*255)+1);
-            var b = Math.floor((Math.random()*255)+1);
-            bg.push('rgba(' + r + "," + g + "," + b + ",0.8)");
+        //VALUES
+        string values1 = "";
+        foreach(var ser in serviciosComprados){
+            values1 += ser.Quantity + ",";
         }
-        return bg;
+        values1 = values1.Substring(0,values1.Length-1);
+
+        <input type="hidden" id="facservices_labels" value="@labels1">
+        <input type="hidden" id="facservices_values" value="@values1">
+
+
+        //LABELS 2
+        string labels2 = "";
+        string values2 = "";
+        foreach(var fact in facturasAuto){
+            labels2 += fact.DateAdded.Date.ToString("dd/MM/yyyy") + ",";
+            values2 += Math.Round(fact.FullPrice) + ",";
+        }
+        labels2 = labels2.Substring(0,labels2.Length -1);
+        values2 = values2.Substring(0,values2.Length-1);
+        <input type="hidden" id="facturas_labels" value="@labels2">
+        <input type="hidden" id="facturas_values" value="@values2">
+
+
+
+    }catch(Exception e){
+        Console.WriteLine(e);
     }
-   
+}
 
-</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+<script src="~/js/reportscharts-general.js"></script>
