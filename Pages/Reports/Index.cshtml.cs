@@ -58,6 +58,9 @@ namespace SparkAuto.Pages.Reports{
                 case 2:
                     DailyEarnings();
                     break;
+                case 3:
+                    FutureAppointments();
+                    break;
                 default:
                     ServicesGraph();
                     break;
@@ -103,6 +106,8 @@ namespace SparkAuto.Pages.Reports{
         
 
         public void ServicesGraph(){
+            ReportsVM.graphlabels = "";
+            ReportsVM.graphvalues = "";
             var result = _db.ServiceDetails.GroupBy(x => x.ServiceTypeId).Select(g => new {key = g.Key, count = g.Count()}).ToList();
             foreach (var item in result){
                 ReportsVM.graphlabels += _db.ServiceType.Find(item.key).Name + ",";
@@ -131,6 +136,29 @@ namespace SparkAuto.Pages.Reports{
 
             ReportsVM.type = ReportsViewModel.GrapType.bar;
             ReportsVM.axislabel = "Sales of day";
+        }
+
+        public void FutureAppointments(){
+            ReportsVM.graphlabels = "";
+            ReportsVM.graphvalues = "";
+            var result = _db.ServiceHeader.Where(x => x.NextServiceDate.Date > DateTime.Now.Date).GroupBy(x => x.NextServiceDate.Date).Select(x => new {
+                n = x.Count(), date = x.Key
+            }).ToList();
+
+            if(result.Count > 15){
+                result = result.GetRange(0,15);
+            }
+
+            foreach(var item in result){
+                ReportsVM.graphlabels += item.date.ToString("dd/MM/yyyy") + ",";
+                ReportsVM.graphvalues += item.n + ",";
+            }
+
+            ReportsVM.graphlabels = ReportsVM.graphlabels.Substring(0, ReportsVM.graphlabels.Length - 1);
+            ReportsVM.graphvalues = ReportsVM.graphvalues.Substring(0, ReportsVM.graphvalues.Length - 1);
+
+            ReportsVM.type = ReportsViewModel.GrapType.bar;
+            ReportsVM.axislabel = "Nex Services Date";
         }
 
 

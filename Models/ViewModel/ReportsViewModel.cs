@@ -5,7 +5,7 @@ namespace SparkAuto.Models.ViewModel{
 
     public class ReportsViewModel{
 
-        public enum GrapType { line,pie,radar,bubble,scatter,area,doughnut,bar  }
+        public enum GrapType { line,pie,radar,bubble,scatter,area,doughnut,bar,horizontalBar  }
 
         public string mospopularservicename {get;set;}
         public int mostpopularservicecount {get;set;}
