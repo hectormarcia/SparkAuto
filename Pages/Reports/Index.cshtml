@@ -4,73 +4,193 @@
 @{ 
     ViewData["Title"] = "Reports";
     Layout = "~/Pages/Shared/_Layout.cshtml";
+    ViewData["invoicegraph"] = (int)ViewData["invoicegraph"] == 0 ? Model.ReportsVM.facturas[0].Id : (int) ViewData["invoicegraph"];
 }
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
 <div class="container mt-5">
     <div class="row">
-        <div class="col-4">
-            <!--CARD-->
-            <h1 class="text-body mb-3">Resume Data:</h1>
-            <div class="card mb-4 lift">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col align-self-center">
-                            <i class="fa fa-wrench fa-2x mr-2"></i>
-                        </div>
-                        <div class="col-6">
-                            <p class="text-muted m-0">Most Contracted Service</p>
-                            <p class="m-0 text-primary">@Model.ReportsVM.mospopularservicename</p>
-                        </div>
-                        <div class="col-4 align-self-end">
-                            <h1 class="text-primary text-right">@Model.ReportsVM.mostpopularservicecount</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--CARD-->
-            <div class="card mb-4 lift">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col align-self-center">
-                            <i class="fa fa-user-tag fa-2x mr-2"></i>
-                        </div>
-                        <div class="col-6">
-                            <p class="text-muted m-0">Our Best Client</p>
-                            <p class="m-0 text-success">@Model.ReportsVM.mostvalueclientname</p>
-                        </div>
-                        <div class="col-4 align-self-end">
-                            <h1 class="text-success text-right">@(String.Format("${0:0.00}",Model.ReportsVM.mostvalueclientmoney))</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div class="col-12">
+            <!--CARDS-->
             <div class="row">
+
                 <div class="col">
-                    <div class="card lift">
-                        <div class="card-body">
-                            <i class="fa fa-calendar-day d-block text-center fa-2x"></i>
-                            <span class="text-center text-muted d-block mt-2">Sales Today</span>
-                            <h2 class="text-orange text-center">@(String.Format("${0:0.00}",Model.ReportsVM.totaltoday))</h2>
+                    <div class="card card-icon lift">
+                        <div class="row no-gutters">
+                            <div class="col-auto card-icon-aside bg-orange">
+                                <i class="fa fa-wrench d-block text-white"></i>
+                            </div>
+                            <div class="col ml-4 align-self-center">
+                                <span class="text-muted small d-block mt-2">Most Contracted Service:</span>
+                                <p class="m-0 text-orange ">@Model.ReportsVM.mospopularservicename</p>
+                                <h2 class="text-orange ">@Model.ReportsVM.mostpopularservicecount</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col">
-                    <div class="card lift">
-                        <div class="card-body">
-                            <i class="fa fa-calendar d-block text-center fa-2x"></i>
-                            <span class="text-center text-muted d-block mt-2">Sales Month</span>
-                            <h2 class="text-cyan text-center">@(String.Format("${0:0.00}",Model.ReportsVM.totalmonth))</h2>
+                    <div class="card card-icon lift">
+                        <div class="row no-gutters">
+                            <div class="col-auto card-icon-aside bg-green">
+                                <i class="fas fa-user-tag d-block text-white"></i>
+                            </div>
+                            <div class="col ml-4 align-self-center">
+                                <span class="text-muted small d-block mt-2">Our Best Client:</span>
+                                <p class="m-0 text-green ">@Model.ReportsVM.mostvalueclientname</p>
+                                <h2 class="text-green ">@(String.Format("${0:0.00}",Model.ReportsVM.mostvalueclientmoney))</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="col">
+                    <div class="card card-icon lift">
+                        <div class="row no-gutters">
+                            <div class="col-auto card-icon-aside bg-cyan">
+                                <i class="fas fa-calendar-day d-block text-white"></i>
+                            </div>
+                            <div class="col ml-4 align-self-center">
+                                <span class="text-muted small d-block mt-2">Sales Today:</span>
+                                <p class="m-0 text-cyan ">@DateTime.Now.ToString("dd/MM/yyyy")</p>
+                                <h2 class="text-cyan ">@(String.Format("${0:0.00}",Model.ReportsVM.totaltoday))</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card card-icon lift">
+                        <div class="row no-gutters">
+                            <div class="col-auto card-icon-aside bg-indigo">
+                                <i class="fa fa-calendar d-block text-white"></i>
+                            </div>
+                            <div class="col ml-4 align-self-center">
+                                <span class="text-muted small d-block mt-2">Sales Month:</span>
+                                <p class="m-0 text-indigo ">@DateTime.Now.ToString("MMMM")</p>
+                                <h2 class="text-indigo ">@(String.Format("${0:0.00}",Model.ReportsVM.totalmonth))</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
             </div>
         </div>
 
+    </div>
 
-        <div class="col-8">
+    <!--TABLA DE VEHICULOS-->
+    <div class="row mt-5">
+        <div class="col-12">
+
+            <div class="card">
+                <div class="card-header">
+                    <form action="" method="GET">
+                        <div class="row">
+                            <div class="col-3 align-self-end">
+                                <div class="form-group m-0">
+                                    <input type="text" class="form-control form-control-solid" placeholder="Client Name" asp-for="search.username">
+                                </div>
+                            </div>
+                            <div class="col-2 align-self-end">
+                                <div class="form-group m-0">
+                                    <input type="text" class="form-control form-control-solid" placeholder="Plate Number" asp-for="search.plate">
+                                </div>
+                            </div>
+                            <div class="col-2 align-self-end">
+                                <div class="form-group m-0">
+                                    <input type="text" class="form-control form-control-solid" placeholder="Car Model" asp-for="search.model">
+                                </div>
+                            </div>
+                            <div class="col-2 align-self-end">
+                                <input type="date" class="form-control form-control-solid" asp-for="search.initdate">
+                            </div>
+                            <div class="col-2 align-self-end">
+                                <input type="date" class="form-control form-control-solid" asp-for="search.enddate">
+                            </div>
+                            <div class="col-1 align-self-center">
+                                <button type="submit" class="btn btn-icon btn-primary"><i class="fa fa-search"></i></button>
+                                <a href="#" class="btn btn-icon btn-dark" id="btnPrintTable"><i class="fa fa-print"></i></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="card-body" id="printArea">
+                    <p class="font-weight-bold">Showing @Model.ReportsVM.facturas.Count records</p>
+                    <table class="table table-bordered table-sm table-hover" >
+                        @{double suma = 0;}
+                        <tr>
+                            <th class="fit">Invoice Id</th>
+                            <th>Client</th>
+                            <th>Service Date</th>
+                            <th>Car Plate</th>
+                            <th>Car Model</th>
+                            <th>Car Make</th>
+                            <th>Full Price</th>
+                            <th class="td-center fit">View Graph</th>
+                        </tr>
+                        @foreach (var item in @Model.ReportsVM.facturas)
+                        {
+                            suma += item.FullPrice;
+
+                            <tr>
+                                <td class="fit"># @(item.Id)</td>
+                                <td>@item.Car.ApplicationUser.Name</td>
+                                <td>@item.DateAdded.ToString("dd/MM/yyyy")</td>
+                                <td>@item.Car.VIN</td>
+                                <td>@item.Car.Model</td>
+                                <td>@item.Car.Make</td>
+                                <td>@(String.Format("${0:0.00}",item.FullPrice))</td>
+                                <td class="td-center fit">
+                                    <form action="" method="GET">
+                                        <input type="hidden" value='@ViewData["generalgraph"]' asp-for="@Model.search.generalgraph">
+                                        <input type="hidden" value='@ViewData["plate"]' asp-for="@Model.search.plate">
+                                        <input type="hidden" value='@ViewData["model"]' asp-for="@Model.search.model">
+                                        <input type="hidden" value='@ViewData["username"]' asp-for="@Model.search.username">
+                                        <input type="hidden" value='@ViewData["initdate"]' asp-for="@Model.search.initdate">
+                                        <input type="hidden" value='@ViewData["enddate"]' asp-for="@Model.search.enddate">
+                                        <input type="hidden" asp-for="@Model.search.invoicegraph" value="@item.Id">
+                                        <button type="submit" class="btn btn-xs btn-icon btn-primary"><i class="fa fa-analytics"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <th colspan="6" class="bg-green-soft">Total Full Prices</th>
+                            <th class="bg-green-soft text-success">@(String.Format("${0:0.00}",suma))</th>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="card-footer bg-white">
+                    <h1 class="mt-0 mb-4 text-center">
+                        Invoice Id: # @ViewData["invoicegraph"]
+                    </h1>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="p-2 border rounded-lg">
+                                <canvas id="Canvas2" width="100" height="100"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-7 offset-1">
+                            <div class="p-2 border rounded-lg">
+                                <canvas id="Canvas3" width="300" height="150"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-8 mt-5">
             <h1 class="text-body mb-3">Graphic Data:</h1>
             <div class="card">
                 <div class="card-header bg-white">
@@ -91,107 +211,10 @@
                 </div>
             </div>
         </div>
-
     </div>
 
-    <!--TABLA DE VEHICULOS-->
-    <div class="row mt-5">
-        <div class="col-12">
 
-            <div class="card">
-                <div class="card-header">
-                    <form action="" method="GET">
-                        <div class="row">
-                            <div class="col-2 align-self-end">
-                                <div class="form-group m-0">
-                                    <input type="text" class="form-control form-control-solid" placeholder="Plate Number" asp-for="search.plate">
-                                </div>
-                            </div>
-                            <div class="col-2 align-self-end">
-                                <div class="form-group m-0">
-                                    <input type="text" class="form-control form-control-solid" placeholder="Model" asp-for="search.model">
-                                </div>
-                            </div>
-                            <div class="col-3 align-self-end">
-                                <div class="form-group m-0">
-                                    <input type="text" class="form-control form-control-solid" placeholder="Client Name" asp-for="search.username">
-                                </div>
-                            </div>
-                            <div class="col-2 align-self-end">
-                                <input type="date" class="form-control form-control-solid" asp-for="search.initdate">
-                            </div>
-                            <div class="col-2 align-self-end">
-                                <input type="date" class="form-control form-control-solid" asp-for="search.enddate">
-                            </div>
-                            <div class="col-1 align-self-center">
-                                <button type="submit" class="btn btn-icon btn-primary"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="card-body">
-                    <p class="font-weight-bold">Showing @Model.ReportsVM.facturas.Count records</p>
-                    <table class="table table-bordered table-sm table-hover">
-                        @{double suma = 0;}
-                        <tr>
-                            <th>Invoice Id</th>
-                            <th>Client</th>
-                            <th>Service Date</th>
-                            <th>Car Plate</th>
-                            <th>Car Model</th>
-                            <th>Car Make</th>
-                            <th>Full Price</th>
-                            <th class="td-center fit">View Graph</th>
-                        </tr>
-                        @foreach (var item in @Model.ReportsVM.facturas)
-                        {
-                            suma += item.FullPrice;
 
-                            <tr>
-                                <td># @(item.Id)</td>
-                                <td>@item.Car.ApplicationUser.UserName</td>
-                                <td>@item.DateAdded.ToString("dd/MM/yyyy")</td>
-                                <td>@item.Car.VIN</td>
-                                <td>@item.Car.Model</td>
-                                <td>@item.Car.Make</td>
-                                <td>@item.FullPrice</td>
-                                <td class="td-center fit">
-                                    <form action="" method="GET">
-                                        <input type="hidden" value='@ViewData["generalgraph"]' asp-for="@Model.search.generalgraph">
-                                        <input type="hidden" value='@ViewData["plate"]' asp-for="@Model.search.plate">
-                                        <input type="hidden" value='@ViewData["model"]' asp-for="@Model.search.model">
-                                        <input type="hidden" value='@ViewData["username"]' asp-for="@Model.search.username">
-                                        <input type="hidden" value='@ViewData["initdate"]' asp-for="@Model.search.initdate">
-                                        <input type="hidden" value='@ViewData["enddate"]' asp-for="@Model.search.enddate">
-                                        <input type="hidden" asp-for="@Model.search.invoicegraph" value="@item.Id">
-                                        <button type="submit" class="btn btn-xs btn-icon btn-primary"><i class="fa fa-analytics"></i></button>
-                                    </form>
-                                </td>
-                            </tr>
-                        }
-                        <tr>
-                            <th colspan="6" class="bg-primary-soft">Total Full Prices</td>
-                            <th class="bg-primary-soft">@(String.Format("${0:0.00}",suma))</td>
-                        </tr>
-                    </table>
-
-                    <div class="row mt-5">
-                        <div class="col-4 offset-1">
-                            <div class="p-2 border rounded-lg">
-                                <canvas id="Canvas2" width="100" height="100"></canvas>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="p-2 border rounded-lg">
-                                <canvas id="Canvas3" width="300" height="150"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
 </div>
 
 
@@ -203,17 +226,15 @@
 
 
 
-@if(ViewData["invoicegraph"] != null){
+@{
 
     try{
-        int invoiceId = (int) ViewData["invoicegraph"];
-        ServiceHeader serviceHeader = Model._db.ServiceHeader.Find(invoiceId);
+
+        ServiceHeader serviceHeader = Model._db.ServiceHeader.Find((int)ViewData["invoicegraph"]);
         List<ServiceHeader> facturasAuto = Model._db.ServiceHeader.Where(x => x.CarId == serviceHeader.CarId).ToList();
         List<ServiceType> serviciosExistentes = Model._db.ServiceType.ToList();
-        List<ServiceDetails> serviciosComprados = Model._db.ServiceDetails.Where(x => x.ServiceHeaderId == invoiceId).ToList();
+        List<ServiceDetails> serviciosComprados = Model._db.ServiceDetails.Where(x => x.ServiceHeaderId == (int)ViewData["invoicegraph"]).ToList();
     
-
-
         //LABELS
         string labels1 = "";
         foreach(var ser in serviciosExistentes){
@@ -254,3 +275,18 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
 <script src="~/js/reportscharts-general.js"></script>
+
+@section Scripts{
+    <script>
+        $("#btnPrintTable").on("click",function(){
+            const area = document.getElementById("printArea");
+            var opt = {
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas:  { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+                filename: "report.pdf"
+            };
+            html2pdf().set(opt).from(area).save();
+        })
+    </script>
+}

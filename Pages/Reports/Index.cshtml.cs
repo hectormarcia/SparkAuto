@@ -44,7 +44,7 @@ namespace SparkAuto.Pages.Reports{
 
             //REPORT MOST VALUE CLIENT
             var result2 = _db.ServiceHeader.GroupBy(c => c.CarId).Select(a => new { carid = a.Key, suma = a.Sum( x => x.FullPrice) }).OrderBy(x => x.suma).Last();
-            ReportsVM.mostvalueclientname = _db.Users.Find(_db.Car.Find(result2.carid).UserId).UserName;
+            ReportsVM.mostvalueclientname = _db.ApplicationUser.Find(_db.Car.Find(result2.carid).UserId).Name;
             ReportsVM.mostvalueclientmoney = result2.suma;
 
             ReportsVM.totaltoday = _db.ServiceHeader.Where(x => x.DateAdded.Date == DateTime.Now.Date).Sum(x => x.FullPrice);
