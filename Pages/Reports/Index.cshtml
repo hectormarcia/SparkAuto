@@ -4,7 +4,16 @@
 @{ 
     ViewData["Title"] = "Reports";
     Layout = "~/Pages/Shared/_Layout.cshtml";
-    ViewData["invoicegraph"] = (int)ViewData["invoicegraph"] == 0 ? Model.ReportsVM.facturas[0].Id : (int) ViewData["invoicegraph"];
+
+
+    try{
+        ViewData["invoicegraph"] = (int)ViewData["invoicegraph"] == 0 ? Model.ReportsVM.facturas[0].Id : (int) ViewData["invoicegraph"];
+    }catch{
+        ViewData["invoicegraph"] = 0;
+    }finally{
+
+    }
+    
 }
 
 
@@ -119,69 +128,98 @@
                     </form>
                 </div>
                 
-                <div class="card-body" id="printArea">
-                    <p class="font-weight-bold">Showing @Model.ReportsVM.facturas.Count records</p>
-                    <table class="table table-bordered table-sm table-hover" >
-                        @{double suma = 0;}
-                        <tr>
-                            <th class="fit">Invoice Id</th>
-                            <th>Client</th>
-                            <th>Service Date</th>
-                            <th>Car Plate</th>
-                            <th>Car Model</th>
-                            <th>Car Make</th>
-                            <th>Full Price</th>
-                            <th class="td-center fit">View Graph</th>
-                        </tr>
-                        @foreach (var item in @Model.ReportsVM.facturas)
-                        {
-                            suma += item.FullPrice;
+                <div class="card-body p-0">
 
+                    <div class="row px-4 pt-4">
+                        <div class="col-10 align-self-center">
+                            <p class="font-weight-bold m-0">Showing @Model.ReportsVM.facturas.Count records</p>
+                        </div>
+                        <div class="col-2">
+                            <form action="" method="GET">
+                                <input type="hidden" value='@ViewData["plate"]' asp-for="@Model.search.plate">
+                                <input type="hidden" value='@ViewData["model"]' asp-for="@Model.search.model">
+                                <input type="hidden" value='@ViewData["username"]' asp-for="@Model.search.username">
+                                <input type="hidden" value='@ViewData["initdate"]' asp-for="@Model.search.initdate">
+                                <input type="hidden" value='@ViewData["enddate"]' asp-for="@Model.search.enddate">
+                                <select asp-for="@Model.search.maxrows" class="form-control" onchange="this.form.submit()">
+                                    <option value="10">10 Records</option>
+                                    <option value="25">25 Records</option>
+                                    <option value="50">50 Records</option>
+                                    <option value="100">100 Records</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="printArea" class="p-4">
+                        <table class="table table-bordered table-sm table-hover" >
+                            @{double suma = 0;}
                             <tr>
-                                <td class="fit"># @(item.Id)</td>
-                                <td>@item.Car.ApplicationUser.Name</td>
-                                <td>@item.DateAdded.ToString("dd/MM/yyyy")</td>
-                                <td>@item.Car.VIN</td>
-                                <td>@item.Car.Model</td>
-                                <td>@item.Car.Make</td>
-                                <td>@(String.Format("${0:0.00}",item.FullPrice))</td>
-                                <td class="td-center fit">
-                                    <form action="" method="GET">
-                                        <input type="hidden" value='@ViewData["generalgraph"]' asp-for="@Model.search.generalgraph">
-                                        <input type="hidden" value='@ViewData["plate"]' asp-for="@Model.search.plate">
-                                        <input type="hidden" value='@ViewData["model"]' asp-for="@Model.search.model">
-                                        <input type="hidden" value='@ViewData["username"]' asp-for="@Model.search.username">
-                                        <input type="hidden" value='@ViewData["initdate"]' asp-for="@Model.search.initdate">
-                                        <input type="hidden" value='@ViewData["enddate"]' asp-for="@Model.search.enddate">
-                                        <input type="hidden" asp-for="@Model.search.invoicegraph" value="@item.Id">
-                                        <button type="submit" class="btn btn-xs btn-icon btn-primary"><i class="fa fa-analytics"></i></button>
-                                    </form>
-                                </td>
+                                <th class="fit">Invoice Id</th>
+                                <th>Client</th>
+                                <th>Service Date</th>
+                                <th>Car Plate</th>
+                                <th>Car Model</th>
+                                <th>Car Make</th>
+                                <th>Full Price</th>
+                                <th class="td-center fit">View Graph</th>
                             </tr>
-                        }
-                        <tr>
-                            <th colspan="6" class="bg-green-soft">Total Full Prices</th>
-                            <th class="bg-green-soft text-success">@(String.Format("${0:0.00}",suma))</th>
-                        </tr>
-                    </table>
+                            @foreach (var item in @Model.ReportsVM.facturas)
+                            {
+                                suma += item.FullPrice;
+
+                                <tr>
+                                    <td class="fit"># @(item.Id)</td>
+                                    <td>@item.Car.ApplicationUser.Name</td>
+                                    <td>@item.DateAdded.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.Car.VIN</td>
+                                    <td>@item.Car.Model</td>
+                                    <td>@item.Car.Make</td>
+                                    <td>@(String.Format("${0:0.00}",item.FullPrice))</td>
+                                    <td class="td-center fit">
+                                        <form action="" method="GET">
+                                            <input type="hidden" value='@ViewData["plate"]' asp-for="@Model.search.plate">
+                                            <input type="hidden" value='@ViewData["model"]' asp-for="@Model.search.model">
+                                            <input type="hidden" value='@ViewData["username"]' asp-for="@Model.search.username">
+                                            <input type="hidden" value='@ViewData["initdate"]' asp-for="@Model.search.initdate">
+                                            <input type="hidden" value='@ViewData["enddate"]' asp-for="@Model.search.enddate">
+                                            <input type="hidden" asp-for="@Model.search.invoicegraph" value="@item.Id">
+                                            <button type="submit" class="btn btn-xs btn-icon btn-primary"><i class="fa fa-analytics"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                            @if(@Model.ReportsVM.facturas.Count == 0){
+                                <tr>
+                                    <th colspan="8" class="text-center">No matching records found</th>
+                                </tr>
+                            }
+                            <tr>
+                                <th colspan="6" class="bg-green-soft">Total Full Prices</th>
+                                <th class="bg-green-soft text-success">@(String.Format("${0:0.00}",suma))</th>
+                            </tr>
+                        </table>
+                    </div>
+                        
                 </div>
 
                 <div class="card-footer bg-white">
-                    <h1 class="mt-0 mb-4">
-                        Invoice Id: # @ViewData["invoicegraph"]
-                    </h1>
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="p-2 border rounded-lg">
-                                <canvas id="Canvas2" width="100" height="100"></canvas>
+                    @if((int)ViewData["invoicegraph"] != 0){
+                        <h1 class="mt-0 mb-4">Invoice Id: # @ViewData["invoicegraph"]</h1>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="p-2 border rounded-lg">
+                                    <canvas id="Canvas2" width="100" height="100"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-7 offset-1">
+                                <div class="p-2 border rounded-lg">
+                                    <canvas id="Canvas3" width="300" height="150"></canvas>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-7 offset-1">
-                            <div class="p-2 border rounded-lg">
-                                <canvas id="Canvas3" width="300" height="150"></canvas>
-                            </div>
-                        </div>
-                    </div>
+                    }
+
                 </div>
 
             </div>
@@ -189,42 +227,57 @@
         </div>
     </div>
 
+    <h1 class="text-body my-4">Graphic Data:</h1>
+
     <div class="row">
-        <div class="col-9 mt-5">
-            <h1 class="text-body mb-3">Graphic Data:</h1>
+        <div class="col-6">
             <div class="card">
-                <div class="card-header bg-white">
-                    <form action="" method="get" class="row">
-                        <div class="col-6 offset-5">
-                            <select asp-for="@Model.search.generalgraph" class="form-control form-control-solid">
-                                <option value="1">Services Graph</option>
-                                <option value="2">Daily Earnings</option>
-                                <option value="3">Future Appointments</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-icon btn-primary" type="submit"><i class="fa fa-search"></i></button>
-                        </div>
-                    </form>
+                <div class="card-header">
+                    <p class="m-0">Purchased services</p>
                 </div>
                 <div class="card-body mt-4">
+                    <input type="hidden" id="chart1_labels" value="@Model.chartitems[1].getLabels()">
+                    <input type="hidden" id="chart1_values" value="@Model.chartitems[1].getValues()">
+                    <input type="hidden" id="chart1_type" value="@Model.chartitems[1].getType()">
+                    <input type="hidden" id="chart1_axis" value="@Model.chartitems[1].axislabel">
                     <canvas id="Canvas1" width="400" height="200"></canvas>
                 </div>
             </div>
         </div>
+
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <p class="m-0">Daily Eearnigns</p>
+                </div>
+                <div class="card-body mt-4">
+                    <input type="hidden" id="chart4_labels" value="@Model.chartitems[0].getLabels()">
+                    <input type="hidden" id="chart4_values" value="@Model.chartitems[0].getValues()">
+                    <input type="hidden" id="chart4_type" value="@Model.chartitems[0].getType()">
+                    <input type="hidden" id="chart4_axis" value="@Model.chartitems[0].axislabel">
+                    <canvas id="Canvas4" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6 mt-4">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <p class="m-0">Future Appointments</p>
+                </div>
+                <div class="card-body mt-4">
+                    <input type="hidden" id="chart5_labels" value="@Model.chartitems[2].getLabels()">
+                    <input type="hidden" id="chart5_values" value="@Model.chartitems[2].getValues()">
+                    <input type="hidden" id="chart5_type" value="@Model.chartitems[2].getType()">
+                    <input type="hidden" id="chart5_axis" value="@Model.chartitems[2].axislabel">
+                    <canvas id="Canvas5" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-
-
 </div>
-
-
-<!--INPUTS FOR BIND DATA ON JS-->
-<input type="hidden" id="db_labels" value="@Model.ReportsVM.graphlabels">
-<input type="hidden" id="db_values" value="@Model.ReportsVM.graphvalues">
-<input type="hidden" id="db_axislabel" value="@Model.ReportsVM.axislabel">
-<input type="hidden" id="db_graphtype" value="@Model.ReportsVM.type.ToString()">
-
 
 
 @{

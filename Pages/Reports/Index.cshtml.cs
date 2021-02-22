@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SparkAuto.Data;
+using SparkAuto.Models;
 using SparkAuto.Models.ViewModel;
 using System.Collections.Generic;
 using System.Web;
@@ -24,17 +25,18 @@ namespace SparkAuto.Pages.Reports{
         
         public SearchReportViewModel search {get;set;}
         
+        public List<Chart> chartitems {get;set;}
 
         [HttpGet]
         public IActionResult OnGet(SearchReportViewModel search)
         {
             ReportsVM = new ReportsViewModel();
+            chartitems = new List<Chart>();
             ViewData["plate"] = search.plate;
             ViewData["model"] = search.model;
             ViewData["username"] = search.username;
             ViewData["initdate"] = search.initdate;
             ViewData["enddate"] = search.enddate;
-            ViewData["generalgraph"] = search.generalgraph;
             ViewData["invoicegraph"] = search.invoicegraph;
             
             //REPORT MOST POPULAR SERVICE BUYED
@@ -50,21 +52,10 @@ namespace SparkAuto.Pages.Reports{
             ReportsVM.totaltoday = _db.ServiceHeader.Where(x => x.DateAdded.Date == DateTime.Now.Date).Sum(x => x.FullPrice);
             ReportsVM.totalmonth = _db.ServiceHeader.Where(x => x.DateAdded.Month == DateTime.Now.Month).Sum(x => x.FullPrice);
 
-            
-            switch(search.generalgraph){
-                case 1:
-                    ServicesGraph();
-                    break;
-                case 2:
-                    DailyEarnings();
-                    break;
-                case 3:
-                    FutureAppointments();
-                    break;
-                default:
-                    ServicesGraph();
-                    break;
-            }
+
+            chartitems.Add(DailyEarnings());
+            chartitems.Add(ServicesGraph());
+            chartitems.Add(FutureAppointments());
 
 
             ReportsVM.facturas = _db.ServiceHeader.ToList();
@@ -74,21 +65,16 @@ namespace SparkAuto.Pages.Reports{
             }
             
             
-            if(search == null){
-                int nmax = ReportsVM.facturas.Count > 10 ? 10 : ReportsVM.facturas.Count;
-                ReportsVM.facturas = ReportsVM.facturas.OrderByDescending(x => x.Id).ToList().GetRange(0,nmax);
-            }
-            
             if(search.plate != null){
-                ReportsVM.facturas = ReportsVM.facturas.Where(x => x.Car.VIN.Equals(search.plate)).ToList();
+                ReportsVM.facturas = ReportsVM.facturas.Where(x => x.Car.VIN.Contains(search.plate)).ToList();
             }
             
             if(search.model != null){
-                ReportsVM.facturas = ReportsVM.facturas.Where(x => x.Car.Model.ToLower().Equals(search.model.ToLower())).ToList();
+                ReportsVM.facturas = ReportsVM.facturas.Where(x => x.Car.Model.ToLower().Contains(search.model.ToLower())).ToList();
             }
             
             if(search.username != null){
-                ReportsVM.facturas = ReportsVM.facturas.Where(x => x.Car.ApplicationUser.UserName.ToLower().Contains(search.username.ToLower())).ToList();
+                ReportsVM.facturas = ReportsVM.facturas.Where(x => x.Car.ApplicationUser.Name.ToLower().Contains(search.username.ToLower())).ToList();
             }
 
             if(search.initdate != null){
@@ -99,48 +85,73 @@ namespace SparkAuto.Pages.Reports{
                 ReportsVM.facturas = ReportsVM.facturas.Where(x => x.DateAdded <= DateTime.Parse(search.enddate).AddDays(1)).ToList();
             }
 
+            int nmax = ReportsVM.facturas.Count > 10 ? 10 : ReportsVM.facturas.Count;
+            if(search.maxrows != 0){
+                nmax = ReportsVM.facturas.Count > search.maxrows ? search.maxrows : ReportsVM.facturas.Count;
+            }
+            
+            ReportsVM.facturas = ReportsVM.facturas.OrderByDescending(x => x.Id).ToList().GetRange(0,nmax);
+
+            
             return Page();
         }
 
 
         
 
-        public void ServicesGraph(){
-            ReportsVM.graphlabels = "";
-            ReportsVM.graphvalues = "";
+        public Chart ServicesGraph(){
+            Chart chart = new Chart();
+            chart.axislabel = "Number of sales";
+            chart.type = ChartType.doughnut;
+
+            List<string> labels = new List<string>();
+            List<string> values = new List<string>();
+
             var result = _db.ServiceDetails.GroupBy(x => x.ServiceTypeId).Select(g => new {key = g.Key, count = g.Count()}).ToList();
+            
             foreach (var item in result){
-                ReportsVM.graphlabels += _db.ServiceType.Find(item.key).Name + ",";
-                ReportsVM.graphvalues += item.count + ",";
+                labels.Add(_db.ServiceType.Find(item.key).Name);
+                values.Add(item.count + "");
             }
 
-            ReportsVM.graphlabels = ReportsVM.graphlabels.Substring(0, ReportsVM.graphlabels.Length - 1);
-            ReportsVM.graphvalues = ReportsVM.graphvalues.Substring(0, ReportsVM.graphvalues.Length - 1);
-            ReportsVM.type = ReportsViewModel.GrapType.doughnut;
-            ReportsVM.axislabel = "Number of sales";
+            chart.labels = labels;
+            chart.values = values;
+    
+            return chart;
+
         }
 
 
-        public void DailyEarnings(){
-            ReportsVM.graphlabels = "";
-            ReportsVM.graphvalues = "";
+        public Chart DailyEarnings(){
+            Chart chart = new Chart();
+            chart.axislabel = "Sales of day";
+            chart.type = ChartType.line;
+
+            List<string> labels = new List<string>();
+            List<string> values = new List<string>();
+            
             var result = _db.ServiceHeader.GroupBy(x => x.DateAdded.Day).Select(x => new {headerid = x.Key, suma = x.Sum(y => y.FullPrice)}).OrderBy(x => x.headerid);
             
             foreach(var item in result){
-                ReportsVM.graphlabels += "Day " + item.headerid +  ",";
-                ReportsVM.graphvalues += Math.Round(item.suma,2) + ",";
+                labels.Add("Day " + item.headerid);
+                values.Add(Math.Round(item.suma,2).ToString());
             }
             
-            ReportsVM.graphlabels = ReportsVM.graphlabels.Substring(0, ReportsVM.graphlabels.Length - 1);
-            ReportsVM.graphvalues = ReportsVM.graphvalues.Substring(0, ReportsVM.graphvalues.Length - 1);
+            chart.labels = labels;
+            chart.values = values;
 
-            ReportsVM.type = ReportsViewModel.GrapType.bar;
-            ReportsVM.axislabel = "Sales of day";
+            return chart;
         }
 
-        public void FutureAppointments(){
-            ReportsVM.graphlabels = "";
-            ReportsVM.graphvalues = "";
+        public Chart FutureAppointments(){
+            Chart chart = new Chart();
+            chart.axislabel = "Nex Services Date";
+            chart.type = ChartType.bar;
+
+            List<string> labels = new List<string>();
+            List<string> values = new List<string>();
+
+            
             var result = _db.ServiceHeader.Where(x => x.NextServiceDate.Date > DateTime.Now.Date).GroupBy(x => x.NextServiceDate.Date).Select(x => new {
                 n = x.Count(), date = x.Key
             }).ToList();
@@ -150,15 +161,14 @@ namespace SparkAuto.Pages.Reports{
             }
 
             foreach(var item in result){
-                ReportsVM.graphlabels += item.date.ToString("dd/MM/yyyy") + ",";
-                ReportsVM.graphvalues += item.n + ",";
+                labels.Add(item.date.ToString("dd/MM/yyyy"));
+                values.Add(item.n+"");
             }
 
-            ReportsVM.graphlabels = ReportsVM.graphlabels.Substring(0, ReportsVM.graphlabels.Length - 1);
-            ReportsVM.graphvalues = ReportsVM.graphvalues.Substring(0, ReportsVM.graphvalues.Length - 1);
+            chart.labels = labels;
+            chart.values = values;
 
-            ReportsVM.type = ReportsViewModel.GrapType.bar;
-            ReportsVM.axislabel = "Nex Services Date";
+            return chart;
         }
 
 

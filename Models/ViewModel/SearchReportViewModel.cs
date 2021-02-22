@@ -11,7 +11,8 @@ namespace SparkAuto.Models.ViewModel{
         public string initdate {get;set;}
         public string enddate {get;set;}
         public int invoicegraph {get;set;}
-        public int generalgraph {get;set;}
+
+        public int maxrows {get;set;}
 
     }
 

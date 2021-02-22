@@ -1,15 +1,17 @@
 var canvas1 = document.getElementById("Canvas1");
 var canvas2 = document.getElementById("Canvas2");
 var canvas3 = document.getElementById("Canvas3");
+var canvas4 = document.getElementById("Canvas4");
+var canvas5 = document.getElementById("Canvas5");
 
 new Chart(canvas1, {
-    type: getInputValue("db_graphtype"),
+    type: getInputValue("chart1_type"),
     data: {
-        labels: getInputValue("db_labels"),
+        labels: getInputValue("chart1_labels"),
         datasets: [{
-            label: getInputValue("db_axislabel"),
-            data: getInputValue("db_values"),
-            backgroundColor: chartbgcolors(getInputValue("db_labels").length)
+            label: getInputValue("chart1_axis"),
+            data: getInputValue("chart1_values"),
+            backgroundColor: chartbgcolors(nvals("chart1_values"))
         }]
     },
     options: {
@@ -25,6 +27,51 @@ new Chart(canvas1, {
     }
 });
 
+new Chart(canvas4, {
+    type: getInputValue("chart4_type"),
+    data: {
+        labels: getInputValue("chart4_labels"),
+        datasets: [{
+            label: getInputValue("chart4_axis"),
+            data: getInputValue("chart4_values"),
+            backgroundColor: chartbgcolors(nvals("chart4_values"))
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                display: true,
+                ticks: {
+                    suggestedMin: 0,
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+new Chart(canvas5, {
+    type: getInputValue("chart5_type"),
+    data: {
+        labels: getInputValue("chart5_labels"),
+        datasets: [{
+            label: getInputValue("chart5_axis"),
+            data: getInputValue("chart5_values"),
+            backgroundColor: chartbgcolors(nvals("chart5_values"))
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                display: true,
+                ticks: {
+                    suggestedMin: 0,
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
 
 new Chart(canvas2,{
     type: 'bar',
@@ -75,10 +122,16 @@ new Chart(canvas3, {
 });
 
 
+
+
 /*AUXILIARS*/
 
 function getInputValue(id){
     return document.getElementById(id).value.toString().split(",");
+}
+
+function nvals(id){
+    return getInputValue(id).length;
 }
 
 function chartbgcolors(n){
