@@ -9,9 +9,9 @@ namespace SparkAuto.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
+            
         }
 
         public DbSet<ServiceType> ServiceType { get; set; }
@@ -20,5 +20,7 @@ namespace SparkAuto.Data
         public DbSet<ServiceShoppingCart> ServiceShoppingCart { get; set; }
         public DbSet<ServiceHeader> ServiceHeader { get; set; }
         public DbSet<ServiceDetails> ServiceDetails { get; set; }
+
+        public DbSet<CommonValues> CommonValues {get;set;}
     }
 }

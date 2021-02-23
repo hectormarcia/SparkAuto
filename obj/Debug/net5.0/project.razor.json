@@ -15756,6 +15756,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Pages\\Settings\\Index.cshtml",
+      "TargetPath": "Pages\\Settings\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Storage\\Develop\\Aspnet\\SparkAuto\\Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPasswordConfirmation.cshtml",
       "FileKind": "mvc"

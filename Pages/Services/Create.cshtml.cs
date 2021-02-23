@@ -28,6 +28,8 @@ namespace SparkAuto.Pages.Services
             _db = db;
         }
 
+        public CommonValues cv {get;set;}
+
         public async Task<IActionResult> OnGet(int carId)
         {
             CarServiceVM = new CarServiceViewModel
@@ -35,6 +37,8 @@ namespace SparkAuto.Pages.Services
                 Car = await _db.Car.Include(c => c.ApplicationUser).FirstOrDefaultAsync(c => c.Id == carId),
                 ServiceHeader = new Models.ServiceHeader()
             };
+
+            cv = _db.CommonValues.Find(1);
 
             List<String> lstServiceTypeInShoppingCart = _db.ServiceShoppingCart
                                                             .Include(c => c.ServiceType)
@@ -61,9 +65,10 @@ namespace SparkAuto.Pages.Services
 
                 CarServiceVM.ServiceHeader.TotalPrice += item.ServiceType.Price * item.Quantity;
                 CarServiceVM.ServiceHeader.TotalPrice = Math.Round(CarServiceVM.ServiceHeader.TotalPrice, 2);
-                CarServiceVM.ServiceHeader.Tax = CarServiceVM.ServiceHeader.TotalPrice * .13;
+                CarServiceVM.ServiceHeader.Tax = CarServiceVM.ServiceHeader.TotalPrice * cv.iva;
                 CarServiceVM.ServiceHeader.Tax = Math.Round(CarServiceVM.ServiceHeader.Tax, 2);
-                CarServiceVM.ServiceHeader.FullPrice = CarServiceVM.ServiceHeader.Tax + CarServiceVM.ServiceHeader.TotalPrice + 2.99;
+                CarServiceVM.ServiceHeader.EnvCharge = cv.envCharge;
+                CarServiceVM.ServiceHeader.FullPrice = CarServiceVM.ServiceHeader.Tax + CarServiceVM.ServiceHeader.TotalPrice + CarServiceVM.ServiceHeader.EnvCharge;
                 CarServiceVM.ServiceHeader.FullPrice = Math.Round(CarServiceVM.ServiceHeader.FullPrice, 2);
             }
 
@@ -78,14 +83,17 @@ namespace SparkAuto.Pages.Services
                 CarServiceVM.ServiceHeader.DateAdded = DateTime.Now;
                 CarServiceVM.ServiceHeader.NextServiceDate = DateTime.Now.AddDays(90);
 
+                CommonValues cv2 = _db.CommonValues.Find(1);
+
                 CarServiceVM.ServiceShoppingCart = _db.ServiceShoppingCart.Include(c => c.ServiceType).Where(c => c.CarId == CarServiceVM.Car.Id).ToList();
                 foreach (var item in CarServiceVM.ServiceShoppingCart)
                 {
                     CarServiceVM.ServiceHeader.TotalPrice += item.ServiceType.Price * item.Quantity;
                     CarServiceVM.ServiceHeader.TotalPrice = Math.Round(CarServiceVM.ServiceHeader.TotalPrice, 2);
-                    CarServiceVM.ServiceHeader.Tax = CarServiceVM.ServiceHeader.TotalPrice * .13;
+                    CarServiceVM.ServiceHeader.Tax = CarServiceVM.ServiceHeader.TotalPrice * cv2.iva;
                     CarServiceVM.ServiceHeader.Tax = Math.Round(CarServiceVM.ServiceHeader.Tax, 2);
-                    CarServiceVM.ServiceHeader.FullPrice = CarServiceVM.ServiceHeader.Tax + CarServiceVM.ServiceHeader.TotalPrice + 2.99;
+                    CarServiceVM.ServiceHeader.EnvCharge = cv2.envCharge;
+                    CarServiceVM.ServiceHeader.FullPrice = CarServiceVM.ServiceHeader.Tax + CarServiceVM.ServiceHeader.TotalPrice + CarServiceVM.ServiceHeader.EnvCharge;
                     CarServiceVM.ServiceHeader.FullPrice = Math.Round(CarServiceVM.ServiceHeader.FullPrice, 2);
                 }
                 CarServiceVM.ServiceHeader.CarId = CarServiceVM.Car.Id;

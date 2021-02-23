@@ -29,7 +29,7 @@
     </style>
 </head>
 <div class="d-flex justify-content-center py-4">
-    <button type="button" id="btnprintpdf" class="btn btn-dark rounded-pill">Imprimir Factura</button>
+    <button type="button" id="btnprintpdf" class="btn btn-dark rounded-pill">Print Invoice</button>
 </div>
 <div id="invoice" class="bg-white">
     <div class="invoice-container">
@@ -110,7 +110,7 @@
             </tr>
             <tr>
                 <td colspan="3">Env Charge:</td>
-                <th colspan="1">@(String.Format("${0:0.00}",2.99))</th>
+                <th colspan="1">@(String.Format("${0:0.00}",Model.serviceHeader.EnvCharge))</th>
             </tr>
             <tr class="bg-success-soft">
                 <td colspan="3">Full Price:</td>

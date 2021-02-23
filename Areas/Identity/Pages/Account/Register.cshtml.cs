@@ -100,7 +100,8 @@ namespace SparkAuto.Areas.Identity.Pages.Account
                     Address = Input.Address,
                     City = Input.City,
                     PostalCode = Input.PostalCode,
-                    PhoneNumber = Input.PhoneNumber
+                    PhoneNumber = Input.PhoneNumber,
+                    SmsAlert = true
                 };
 
                 if (!Input.IsAdmin)

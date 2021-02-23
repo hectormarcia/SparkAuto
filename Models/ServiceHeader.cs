@@ -20,6 +20,8 @@ namespace SparkAuto.Models
         [Required]
         public double Tax { get; set; }
 
+        public double EnvCharge {get;set;}
+
         [Required]
         public double FullPrice { get; set; }
 
