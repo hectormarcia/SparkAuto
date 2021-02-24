@@ -27,8 +27,8 @@
                     </div>
                     <div class="col align-self-center">
                         <div class="card-body">
-                            <h5 class="card-title mb-0">@Model.ServiceHeader[0].Car.ApplicationUser.Name</h5>
-                            <p class="card-text m-0 p-0">@Model.ServiceHeader[0].Car.ApplicationUser.Email / @Model.ServiceHeader[0].Car.ApplicationUser.PhoneNumber</p>
+                            <h5 class="card-title mb-0">@Model.Car[0].ApplicationUser.Name</h5>
+                            <p class="card-text m-0 p-0">@Model.Car[0].ApplicationUser.Email / @Model.Car[0].ApplicationUser.PhoneNumber</p>
                         </div>
                     </div>
                 </div>
@@ -42,8 +42,8 @@
                     </div>
                     <div class="col align-self-center">
                         <div class="card-body">
-                            <h5 class="card-title mb-0">@Model.ServiceHeader[0].Car.Make @Model.ServiceHeader[0].Car.Model @Model.ServiceHeader[0].Car.Style</h5>
-                            <p class="card-text m-0 p-0">@Model.ServiceHeader[0].Car.Year</p>
+                            <h5 class="card-title mb-0">@Model.Car[0].Make @Model.Car[0].Model @Model.Car[0].Style</h5>
+                            <p class="card-text m-0 p-0">@Model.Car[0].Year</p>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
 @if (Model.ServiceHeader.Count == 0)
 {
     <div class="card p-5 mt-4">
-        <p>No Service record found...</p>
+        <p>No Service record found. Please create a Service.</p>
     </div>
 }
 else

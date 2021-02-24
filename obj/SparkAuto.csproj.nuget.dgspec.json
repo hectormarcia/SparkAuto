@@ -1,27 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Storage\\Develop\\Aspnet\\SparkAuto\\SparkAuto.csproj": {}
+    "C:\\Users\\hmarcia\\source\\repos\\DEV\\2021\\Hema\\Hema-SparkAutoShop\\SparkAuto.csproj": {}
   },
   "projects": {
-    "C:\\Storage\\Develop\\Aspnet\\SparkAuto\\SparkAuto.csproj": {
+    "C:\\Users\\hmarcia\\source\\repos\\DEV\\2021\\Hema\\Hema-SparkAutoShop\\SparkAuto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Storage\\Develop\\Aspnet\\SparkAuto\\SparkAuto.csproj",
+        "projectUniqueName": "C:\\Users\\hmarcia\\source\\repos\\DEV\\2021\\Hema\\Hema-SparkAutoShop\\SparkAuto.csproj",
         "projectName": "SparkAuto",
-        "projectPath": "C:\\Storage\\Develop\\Aspnet\\SparkAuto\\SparkAuto.csproj",
-        "packagesPath": "C:\\Users\\edgar\\.nuget\\packages\\",
-        "outputPath": "C:\\Storage\\Develop\\Aspnet\\SparkAuto\\obj\\",
+        "projectPath": "C:\\Users\\hmarcia\\source\\repos\\DEV\\2021\\Hema\\Hema-SparkAutoShop\\SparkAuto.csproj",
+        "packagesPath": "C:\\Users\\hmarcia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hmarcia\\source\\repos\\DEV\\2021\\Hema\\Hema-SparkAutoShop\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\edgar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\hmarcia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -105,7 +109,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

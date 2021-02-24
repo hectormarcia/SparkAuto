@@ -10,6 +10,7 @@ namespace SparkAuto.Models
     public class ServiceHeader
     {
         public int Id { get; set; }
+        [Display(Name ="Odometer")]
         public double Miles { get; set; }
         [Required]
         
