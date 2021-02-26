@@ -1,16 +1,21 @@
 @page
 @model SparkAuto.Pages.Reports.IndexModel
 @using SparkAuto.Models.ViewModel
-@{ 
+@{
     ViewData["Title"] = "Reports";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 
 
-    try{
-        ViewData["invoicegraph"] = (int)ViewData["invoicegraph"] == 0 ? Model.ReportsVM.facturas[0].Id : (int) ViewData["invoicegraph"];
-    }catch{
+    try
+    {
+        ViewData["invoicegraph"] = (int)ViewData["invoicegraph"] == 0 ? Model.ReportsVM.facturas[0].Id : (int)ViewData["invoicegraph"];
+    }
+    catch
+    {
         ViewData["invoicegraph"] = 0;
-    }finally{
+    }
+    finally
+    {
 
     }
 
@@ -84,8 +89,8 @@
                     </div>
                 </div>
 
-                
-                
+
+
             </div>
         </div>
 
@@ -127,7 +132,7 @@
                         </div>
                     </form>
                 </div>
-                
+
                 <div class="card-body p-0">
 
                     <div class="row px-4 pt-4">
@@ -152,7 +157,7 @@
                     </div>
 
                     <div id="printArea" class="p-4">
-                        <table class="table table-bordered table-sm table-hover" >
+                        <table class="table table-bordered table-sm table-hover">
                             @{double suma = 0;}
                             <tr>
                                 <th class="fit">Invoice Id</th>
@@ -189,7 +194,8 @@
                                     </td>
                                 </tr>
                             }
-                            @if(@Model.ReportsVM.facturas.Count == 0){
+                            @if (@Model.ReportsVM.facturas.Count == 0)
+                            {
                                 <tr>
                                     <th colspan="8" class="text-center">No matching records found</th>
                                 </tr>
@@ -200,11 +206,12 @@
                             </tr>
                         </table>
                     </div>
-                        
+
                 </div>
 
                 <div class="card-footer bg-white">
-                    @if((int)ViewData["invoicegraph"] != 0){
+                    @if ((int)ViewData["invoicegraph"] != 0)
+                    {
                         <h1 class="mt-0 mb-4">Invoice Id: # @ViewData["invoicegraph"]</h1>
                         <div class="row">
                             <div class="col-4">
@@ -282,26 +289,31 @@
 
 @{
 
-    try{
+    try
+    {
 
         ServiceHeader serviceHeader = Model._db.ServiceHeader.Find((int)ViewData["invoicegraph"]);
         List<ServiceHeader> facturasAuto = Model._db.ServiceHeader.Where(x => x.CarId == serviceHeader.CarId).ToList();
         List<ServiceType> serviciosExistentes = Model._db.ServiceType.ToList();
         List<ServiceDetails> serviciosComprados = Model._db.ServiceDetails.Where(x => x.ServiceHeaderId == (int)ViewData["invoicegraph"]).ToList();
-    
+
         //LABELS
-        string labels1 = "";
-        foreach(var ser in serviciosExistentes){
+
+        /*foreach(var ser in serviciosExistentes){
             labels1 += ser.Name + ",";
-        }
-        labels1 = labels1.Substring(0,labels1.Length-1);
+        }*/
+
 
         //VALUES
         string values1 = "";
-        foreach(var ser in serviciosComprados){
+        string labels1 = "";
+        foreach (var ser in serviciosComprados)
+        {
+            labels1 += ser.ServiceName + ",";
             values1 += ser.Quantity + ",";
         }
-        values1 = values1.Substring(0,values1.Length-1);
+        values1 = values1.Substring(0, values1.Length - 1);
+        labels1 = labels1.Substring(0, labels1.Length - 1);
 
         <input type="hidden" id="facservices_labels" value="@labels1">
         <input type="hidden" id="facservices_values" value="@values1">
@@ -310,18 +322,21 @@
         //LABELS 2
         string labels2 = "";
         string values2 = "";
-        foreach(var fact in facturasAuto){
+        foreach (var fact in facturasAuto)
+        {
             labels2 += fact.DateAdded.Date.ToString("dd/MM/yyyy") + ",";
             values2 += Math.Round(fact.FullPrice) + ",";
         }
-        labels2 = labels2.Substring(0,labels2.Length -1);
-        values2 = values2.Substring(0,values2.Length-1);
+        labels2 = labels2.Substring(0, labels2.Length - 1);
+        values2 = values2.Substring(0, values2.Length - 1);
         <input type="hidden" id="facturas_labels" value="@labels2">
         <input type="hidden" id="facturas_values" value="@values2">
 
 
 
-    }catch(Exception e){
+    }
+    catch (Exception e)
+    {
         Console.WriteLine(e);
     }
 }
@@ -332,11 +347,11 @@
 
 @section Scripts{
     <script>
-        $("#btnPrintTable").on("click",function(){
+        $("#btnPrintTable").on("click", function () {
             const area = document.getElementById("printArea");
             var opt = {
                 image: { type: 'jpeg', quality: 1 },
-                html2canvas:  { scale: 2 },
+                html2canvas: { scale: 2 },
                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
                 filename: "report.pdf"
             };

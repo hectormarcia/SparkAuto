@@ -74,8 +74,10 @@ namespace SparkAuto.Areas.Identity.Pages.Account
             public string Name { get; set; }
             public string Address { get; set; }
             public string City { get; set; }
+            [Display(Name = "Postal Code")]
             public string PostalCode { get; set; }
             [Required]
+            [Display(Name = "Phone Number")]
             public string PhoneNumber    { get; set; }
             public bool IsAdmin { get; set; }
         }

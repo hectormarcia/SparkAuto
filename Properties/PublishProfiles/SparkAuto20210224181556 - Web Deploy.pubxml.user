@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA5trxLWl/uE6IEcXu7OtNXgAAAAACAAAAAAADZgAAwAAAABAAAADzxyZz9dAUf3oej+xvFTKWAAAAAASAAACgAAAAEAAAACnRnN/WiHF6GK82mBa3iZWAAAAA8uQSHOi1XQ6BHx3ZUs6Qst/0Nk2JeTuLt+7emHbcbWFq5wlT8vvs5uM+VuXTsMK16bWphKXXqH2U8BawVEXDs7E/0phc7/qvc3hBF/8Fr0u35ocV7YETWbpNf5xjkCzTbsc8qfx6lo4Zu9NK1ZNjQhOtrx37shGG2suwLknVExcUAAAA3Ul3MPRIvBfsZPZafAcphcGqniM=</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:hemadbserver.database.windows.net,1433%3bInitial Catalog=SparkAuto_db%3bUser Id=hectormarcia%40hemadbserver%3bPassword=Admin123%2a%2a</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

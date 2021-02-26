@@ -46,7 +46,7 @@
                     <div class="col align-self-center">
                         <div class="card-body">
                             <h5 class="card-title mb-0">@Model.CarServiceVM.Car.Make @Model.CarServiceVM.Car.Model @Model.CarServiceVM.Car.Style</h5>
-                            <p class="card-text">@Model.CarServiceVM.Car.Year / @Model.CarServiceVM.Car.Miles miles</p>
+                            <p class="card-text">@Model.CarServiceVM.Car.Year / @Model.CarServiceVM.Car.Miles kms</p>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                                 <h4 class="text-primary">Add Service</h4>
                             </div>
                             <div class="col-3">
-                                <label for="">Cant.</label>
+                                <label for="">Qty</label>
                             </div>
                         </div>
                         <div class="row">
@@ -127,7 +127,7 @@
                                             <th class="fit">
                                                 @Html.DisplayNameFor(m => Model.CarServiceVM.ServiceTypesList.FirstOrDefault().Price)
                                             </th>
-                                            <th class="fit td-center">Cant</th>
+                                            <th class="fit td-center">Qty</th>
                                             <th class="fit td-center">Total</th>
                                             <th class="fit td-center">Actions</th>
                                         </tr>
@@ -232,7 +232,7 @@
             var lastmiles = parseInt($("#Lastmiles").val());
 
             if (miles < lastmiles) {
-                swal("Error!","The miles entered must be greater than or equal to the previous record (" + lastmiles + " miles)","error");
+                swal("Error!","The kilometers entered must be greater than or equal to the previous record (" + lastmiles + " kilometers)","error");
                 return false;
             }
 

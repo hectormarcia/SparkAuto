@@ -13,9 +13,10 @@ namespace SparkAuto.Models
         [Display(Name ="Odometer")]
         public double Miles { get; set; }
         [Required]
-        
+        [Display(Name = "Total Price")]
         public double TotalPrice { get; set; }
 
+        [Display(Name = "Comments")]
         public string Details { get; set; }
 
         [Required]
@@ -24,6 +25,7 @@ namespace SparkAuto.Models
         public double EnvCharge {get;set;}
 
         [Required]
+        [Display(Name = "Full Price")]
         public double FullPrice { get; set; }
 
         [Required]
