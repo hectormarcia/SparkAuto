@@ -19,7 +19,7 @@ using SparkAuto.Utility;
 
 namespace SparkAuto.Areas.Identity.Pages.Account
 {
-    [AllowAnonymous]
+    [Authorize]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;

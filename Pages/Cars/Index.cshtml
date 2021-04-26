@@ -32,7 +32,7 @@
                 <div class="col-md-3">
                     <p>
                         <a asp-page="Create" asp-route-userId="@Model.CarAndCustVM.UserObj.Id"
-                            class="btn btn-primary rounded-pill">
+                           class="btn btn-primary rounded-pill">
                             <i class="fas fa-plus"></i> &nbsp; Add New Car
                         </a>
                     </p>
@@ -116,21 +116,27 @@
                             </td>
                             <td class="fit">
                                 <a class="btn btn-secondary btn-sm rounded-pill d-block" asp-page="../Services/History"
-                                    asp-route-carId="@item.Id">
+                                   asp-route-carId="@item.Id">
                                     <i class="fas fa-wrench mr-1"></i> View History
                                 </a>
                             </td>
 
                             <td class="fit">
                                 <a class="btn btn-success btn-sm rounded-pill d-block" asp-page="../Services/Create"
-                                    asp-route-carId="@item.Id">
+                                   asp-route-carId="@item.Id">
                                     <i class="fas fa-plus mr-1"></i> New Service
+                                </a>
+                            </td>
+                            <td class="fit">
+                                <a class="btn btn-cyan btn-sm rounded-pill d-block" asp-page="../Appointment/Create"
+                                   asp-route-carId="@item.Id">
+                                    <i class="fas fa-plus mr-1"></i> Appointment
                                 </a>
                             </td>
 
                             <td class="fit">
                                 <a class="btn btn-primary btn-icon btn-sm" asp-page="Edit" asp-route-Id="@item.Id">
-                                        <i class="fas fa-pencil"></i>
+                                    <i class="fas fa-pencil"></i>
                                 </a>
                                 <a class="btn btn-danger btn-icon btn-sm" asp-page="Delete" asp-route-Id="@item.Id">
                                     <i class="fas fa-trash-alt"></i>
