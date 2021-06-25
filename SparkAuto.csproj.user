@@ -11,5 +11,6 @@
     <WebStackScaffolding_IsReferencingScriptLibrariesSelected>True</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
     <WebStackScaffolding_DbContextTypeFullName>SparkAuto.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <NameOfLastUsedPublishProfile>SparkAuto20210224181556 - Web Deploy</NameOfLastUsedPublishProfile>
+    <WebStackScaffolding_DbContextDialogWidth>650</WebStackScaffolding_DbContextDialogWidth>
   </PropertyGroup>
 </Project>

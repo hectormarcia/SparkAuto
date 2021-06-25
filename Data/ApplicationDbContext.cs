@@ -11,16 +11,21 @@ namespace SparkAuto.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            
+
         }
 
         public DbSet<ServiceType> ServiceType { get; set; }
-        public DbSet<ApplicationUser> ApplicationUser { get; set; }
-        public DbSet<Car> Car { get; set; }
-        public DbSet<ServiceShoppingCart> ServiceShoppingCart { get; set; }
-        public DbSet<ServiceHeader> ServiceHeader { get; set; }
-        public DbSet<ServiceDetails> ServiceDetails { get; set; }
+                public DbSet<ApplicationUser> ApplicationUser { get; set; }
+                public DbSet<Car> Car { get; set; }
+                public DbSet<ServiceShoppingCart> ServiceShoppingCart { get; set; }
+                public DbSet<ServiceHeader> ServiceHeader { get; set; }
+                public DbSet<ServiceDetails> ServiceDetails { get; set; }
 
-        public DbSet<CommonValues> CommonValues {get;set;}
+                public DbSet<CommonValues> CommonValues { get; set; }
+                protected override void OnConfiguring(DbContextOptionsBuilder options)
+                    => options.UseSqlite("Data Source=AutoShopDB.db");
     }
+
+        
+    
 }

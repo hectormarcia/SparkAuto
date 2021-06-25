@@ -2004,7 +2004,6 @@ C:\Users\hmarcia\source\repos\DEV\2021\Hema\Hema-SparkAutoShop\bin\Debug\net5.0\
 C:\Users\hmarcia\source\repos\DEV\2021\Hema\Hema-SparkAutoShop\bin\Debug\net5.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\hmarcia\source\repos\DEV\2021\Hema\Hema-SparkAutoShop\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\hmarcia\source\repos\DEV\2021\Hema\Hema-SparkAutoShop\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\hmarcia\source\repos\DEV\2021\Hema\Hema-SparkAutoShop\obj\Debug\net5.0\SparkAuto.csprojAssemblyReference.cache
 C:\Users\hmarcia\source\repos\DEV\2021\Hema\Hema-SparkAutoShop\obj\Debug\net5.0\SparkAuto.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\hmarcia\source\repos\DEV\2021\Hema\Hema-SparkAutoShop\obj\Debug\net5.0\SparkAuto.AssemblyInfoInputs.cache
 C:\Users\hmarcia\source\repos\DEV\2021\Hema\Hema-SparkAutoShop\obj\Debug\net5.0\SparkAuto.AssemblyInfo.cs
@@ -2625,3 +2624,4 @@ C:\Storage\Develop\Aspnet\SparkAuto\obj\Debug\net5.0\SparkAuto.pdb
 C:\Storage\Develop\Aspnet\SparkAuto\obj\Debug\net5.0\SparkAuto.genruntimeconfig.cache
 C:\Storage\Develop\Aspnet\SparkAuto\obj\Debug\net5.0\Razor\Pages\Settings\Index.cshtml.g.cs
 C:\Users\hmarcia\source\repos\DEV\2021\Hema\Hema-SparkAutoShop\obj\Debug\net5.0\Razor\Pages\Settings\Index.cshtml.g.cs
+C:\Users\hmarcia\source\repos\DEV\2021\Hema\Hema-SparkAutoShop\obj\Debug\net5.0\SparkAuto.csprojAssemblyReference.cache
